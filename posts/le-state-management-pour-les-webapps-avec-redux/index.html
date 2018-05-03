@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr-fr" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+    
+    <title>Le State management pour les webapps avec Redux &middot; Kevin ALBRECHT</title>
+    <meta content="Le State management pour les webapps avec Redux - Kevin ALBRECHT" property="og:title">
+    <meta content=" - Dans une web app simple, par défaut on va permettre à nos composants de consommer de la donnée : un composant peut lire, créer ou éditer une donnée &#39;A&#39; , tandis qu&#39;un autre peut lui aussi modifier cette donnée &#39;A&#39;, et qu&#39;un troisième composant va pouvoir éditer une propriété de la donnée &#39;A&#39;. Il est facile d&#39;avoir la référence d&#39;un objet distribué à droite à gauche et de permettre un accès vers de multiples composants..." property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="http://example.org/css/print.css" media="print">
+    <link rel="stylesheet" href="http://example.org/css/poole.css">
+    <link rel="stylesheet" href="http://example.org/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="http://example.org/css/custom.css">
+        <link rel="stylesheet" href="http://example.org/css/override.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center"> 
+			<a href="http://example.org/"><h1 class="brand">Kevin ALBRECHT</h1></a>
+			<p class="lead">
+				 Développeur Web 
+			</p>
+			<ul>
+				
+				<li>
+					Angular
+				</li>
+				
+				<li>
+					Asp.net / core
+				</li>
+				
+				<li>
+					Cordova
+				</li>
+				
+			</ul>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+		</li>
+	</ul>
+</div>
+
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/kalbrecht_fr"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/Bubbuls"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/albrechtkevin/"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:kevin-albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+	</div>
+	<div>
+	</div>
+	<div class="sidebar-sticky sidebar-bottom">
+		<p class="copyright">&copy; 2018 .
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>Le State management pour les webapps avec Redux</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> 11/12/2016
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/redux">redux</a> 
+        
+            <a class="meta" href="/tags/webapp">webapp</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 7 min read 
+      </span>  
+  </div>    
+  
+  
+
+<h1 id="introduction">Introduction</h1>
+
+<h2 id="problématique">Problématique</h2>
+
+<p>Dans une web app simple, par défaut on va permettre à nos composants de consommer de la donnée : un composant peut lire, créer ou éditer une donnée &ldquo;A&rdquo; , tandis qu&rsquo;un autre peut lui aussi modifier cette donnée &ldquo;A&rdquo;, et qu&rsquo;un troisième composant va pouvoir éditer une propriété de la donnée &ldquo;A&rdquo;. Il est facile d&rsquo;avoir la référence d&rsquo;un objet distribué à droite à gauche et de permettre un accès vers de multiples composants.</p>
+
+<p>Aïe, le problème avec ce genre de process est qu&rsquo;il se schématise par une grande toile d&rsquo;araignée d&rsquo;accès et de modification de donnée un peu partout, chaque cas totalement dépendant du contexte, ce qui devient très dur à suivre et à debugger …</p>
+
+<h2 id="state-management">State management</h2>
+
+<p>C&rsquo;est là qu&rsquo;intervient la notion de State Management.
+Pour le moment on peut considérer qu&rsquo;un State représente plusieurs éléments :</p>
+
+<ul>
+<li>Une donnée initiale A</li>
+<li>Une réponse http</li>
+<li>Un input utilisateur</li>
+<li>Une navigation</li>
+<li>… etc.</li>
+</ul>
+
+<p>L&rsquo;idée de base est de pouvoir représenter l&rsquo;état d&rsquo;une application en un seul endroit afin d’obtenir un data flow one way. On peut voir le comportement problématique et la solution que nous souhaitons apporter par le schema suivant :</p>
+
+<p><img src="/globalDataflow.png" alt="47133006-86ab-4c72-b9d9-a2c18c18cce3_global dataflow.png" /></p>
+
+<p>Pour se faire on va voir l&rsquo;architecture proposée par Redux.</p>
+
+<h1 id="qu-est-ce-que-redux">Qu&rsquo;est ce que Redux</h1>
+
+<p><img src="/redux.png" alt="redux" /></p>
+
+<p>Redux est une simple librairie Javascript , agnostique de tout framework SPA ou autre ( bien que couramment utilisé dans un environnent React ). Il met à disposition un pattern de gestion d&rsquo;état via plusieurs éléments  représentant un data flow oneway cyclique.</p>
+
+<h2 id="les-principes">Les principes</h2>
+
+<p>Voici les 3 principes de Redux :</p>
+
+<ul>
+<li>Single source of truth: l&rsquo;état de l&rsquo;application globale est stocké dans un &ldquo;store&rdquo; unique.</li>
+<li>State readonly : la notion d&rsquo;Immutabilité est importante, en gros, une fois qu&rsquo;un state est créé, il ne peut pas être modifié, il faut en recréer un pour apporter une évolution.</li>
+<li>Changes are made with pure functions: des fonctions seront dédiées aux modifications à apporter au State de l&rsquo;application et celles-ci doivent être dites &ldquo;pures&rdquo;. Pour rappel le terme de fonction pure designe une fonction qui :
+
+<ul>
+<li>N&rsquo;a aucun effet de bord, elle ne modifie aucune autre donnée que sa valeur de retour.</li>
+<li>Ne prend en compte que ses paramètres d&rsquo;entrée, sans notion d&rsquo;état extérieur, elle peut etre executée n fois avec les mêmes paramètres et retournera toujours la même valeur.</li>
+</ul></li>
+</ul>
+
+<p>Ces fonctions sont apppelées &ldquo;Reducers&rdquo;.</p>
+
+<h2 id="dataflow">Dataflow</h2>
+
+<p>Maintenant que les principes de base sont posés, nous allons voir les éléments qui composent le flux de donnée de notre pattern suivi d&rsquo;un exemple concret:</p>
+
+<ul>
+<li>Un State tree: l&rsquo;état de notre application, qui a été créée / composée par un reducer</li>
+<li>Des Dispatched Actions: une action est un objet composé d&rsquo;un type (identifiant : string, enum …etc) et d&rsquo;un payload représentant une donnée.</li>
+<li>Des Reducers: fonction pure, elle reçoit une dispatched action, répondant à un type particulier, le réducer va composer un nouveau State en ayant pris en compte le payload de l&rsquo;action</li>
+</ul>
+
+<p>Tout ceci représente notre Store, qui est la brique de gestion d&rsquo;état et qui peut être représentée comme suit :</p>
+
+<p><img src="/dataflow.png" alt="dataflow" /></p>
+
+<p>Pour bien comprendre le flux, un composant A représentant un formulaire HTML, souhaite soumettre un champ texte dont la valeur doit s&rsquo;afficher à l&rsquo;écran.</p>
+
+<p>La soumission du formulaire va donc appeler un dispatcher en lui précisant une action dont le type est: &ldquo;ADD_TEXT&rdquo; et le paylod : &ldquo;Lorem Impsum&rdquo;.</p>
+
+<p>Le dispatcher, lui, va contacter le réducer correspondant au type d&rsquo;action et lui demander de mettre à jour l&rsquo;état de notre application. Le reducer retournera donc un nouveau State qui contiendra la valeur à notre composant initial.</p>
+
+<h2 id="exemple-simpliste-d-implémentation">Exemple simpliste d&rsquo;implémentation</h2>
+
+<p>Postulat</p>
+
+<p><em>la vue:</em></p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;resultat&#34;</span>&gt;&lt;/<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstname&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastname&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;validate&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;Valider&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></td></tr></table>
+</div>
+</div>
+
+<p><em>le code behind</em></p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">submitButton</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;validate&#34;</span>);
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">resultsHtml</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;resultat&#34;</span>);
+ 
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">currentFirstname</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;firstname&#34;</span>);
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">currentLastname</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;lastname&#34;</span>);
+ 
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">results</span> <span style="color:#f92672">=</span> [];
+       
+      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">init</span>() {
+          <span style="color:#a6e22e">submitButton</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
+            <span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">push</span>({
+              <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currentFirstname</span>.<span style="color:#a6e22e">value</span>,
+              <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currentLastname</span>.<span style="color:#a6e22e">value</span>
+            });
+            <span style="color:#a6e22e">refreshResults</span>();
+          });
+      }
+       
+      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">refreshResults</span>(){
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">resultsAsString</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+        <span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">item</span>) =&gt; {
+          <span style="color:#a6e22e">resultsAsString</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">`&lt;li&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">firstname</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">lastname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/li&gt;`</span>;
+        });
+        <span style="color:#a6e22e">resultsHtml</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">resultsAsString</span>;
+      }
+      <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">init</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">init</span>
+      };
+    }();
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Dans cet exemple, nous avons simplement un formulaire, et lors du clic sur le bouton de validation, nous voulons afficher la nouvelle entrée dans une liste, le tableau &ldquo;results&rdquo; est accessible  par tous, et peut être modifié à n&rsquo;importequel moment, voyons donc comment faire en sorte qu&rsquo;il soit représenté dans un State.</p>
+
+<p>Rajout du Store</p>
+
+<ul>
+<li><p>Nous allons deja créer un objet &ldquo;store&rdquo; qui contiendra nos differents élément, d&rsquo;abord un state:
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {
+        <span style="color:#a6e22e">persons</span><span style="color:#f92672">:</span> []
+      };
+}()
+</code></pre></td></tr></table>
+</div>
+</div></p></li>
+
+<li><p>Un reducer:</p></li>
+</ul>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reducer</span>(<span style="color:#a6e22e">action</span>) {
+       <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
+         <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;ADD_PERSON&#34;</span><span style="color:#f92672">:</span>
+           <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">currentPayload</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">newPerson</span>;
+           <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">newPayload</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">persons</span>, <span style="color:#a6e22e">currentPayload</span>]
+           <span style="color:#75715e">// nouveau State
+</span><span style="color:#75715e"></span>           <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">persons</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newPayload</span> }
+       }
+       <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+     }
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p><bold>/!\ Remarque :</bold> on voit bien dans l&rsquo;exemple du reducer la notion d&rsquo;immutabilité, on créé un nouveau payload ainsi qu&rsquo;on retourne un nouveau State englobant notre payload.
+A noter l&rsquo;utilisation du &ldquo;spread operator&rdquo; javascript &ldquo;&hellip;&rdquo; qui sert à ré-assigner les propriétés dans l&rsquo;objet courant.
+Voir aussi : <em>Object.assign() ou Function.prototype.apply() mais attention au DeepClone et au Shallow-cloning.</em></p>
+
+<ul>
+<li>Et enfin un dispatcher:
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">action</span>) {
+        <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">reducer</span>(<span style="color:#a6e22e">action</span>);
+      }
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>Il ne reste plus qu&rsquo;à dispatcher une action, voici l&rsquo;évolution de notre handler pour l&rsquo;évenement click:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> <span style="color:#a6e22e">submitButton</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> {
+          <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ADD_PERSON&#34;</span>,
+          <span style="color:#a6e22e">newPerson</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currentFirstname</span>.<span style="color:#a6e22e">value</span>,
+            <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currentLastname</span>.<span style="color:#a6e22e">value</span>
+          }
+        };
+ 
+        <span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">action</span>);
+      });
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Ok, à ce stade nous informons le store qu&rsquo;une nouvelle valeur s&rsquo;ajoute à notre tableau &ldquo;persons&rdquo; et que l&rsquo;on doit donc faire évoluer le State. Cependant comment récupérer le nouveau State depuis un composant ? Nous allons ajouter des souscription !</p>
+
+<p>Subscribe &amp; Notify</p>
+
+<p>Rajoutons donc à notre store des subscribers, une methode de subscribe, et une de notify comme suit:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//subscribers
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">subscribers</span> <span style="color:#f92672">=</span> [];
+ 
+<span style="color:#75715e">//getter
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getState</span>() {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+}
+ 
+<span style="color:#75715e">//notify
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">notify</span>() {
+  <span style="color:#a6e22e">subscribers</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">sub</span>) =&gt; {
+    <span style="color:#a6e22e">sub</span>(<span style="color:#a6e22e">getState</span>());
+  });
+}
+ 
+<span style="color:#75715e">//subscribe
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">fn</span>) {
+  <span style="color:#a6e22e">subscribers</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">subscribers</span>, <span style="color:#a6e22e">fn</span>];
+  <span style="color:#a6e22e">notify</span>();
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Maintenant nous touchons au but, mais attention, <bold> ne pas oublier d&rsquo;appeler le notify lors d&rsquo;un dispatch évidement </bold> et il nous reste plus qu&rsquo;à nous abonner dans la methode &ldquo;init&rdquo; de notre &ldquo;main&rdquo;comme suit :</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> <span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">subscribe</span>((<span style="color:#a6e22e">newState</span>) =&gt; {
+    <span style="color:#a6e22e">results</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newState</span>.<span style="color:#a6e22e">persons</span>;
+    <span style="color:#a6e22e">refreshResults</span>();
+  });
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p><bold>Voila !</bold></p>
+
+<p>Maintenant n&rsquo;importequel composant peut s&rsquo;abonner et se refresh à la moindre modification de donnée.
+Code complet ici ==&gt; <a href="https://jsfiddle.net/mv9jads1/">https://jsfiddle.net/mv9jads1/</a></p>
+
+<h1 id="quelle-solution">Quelle solution</h1>
+
+<p>Il existe plusieurs librairies JS, la plupart basées sur Redux, sensiblement similaires plus ou moins adaptées en fonction du projet comme par exemple :</p>
+
+<ul>
+<li><a href="https://github.com/mjaneczek/conventional-redux">Conventional-redux</a></li>
+<li><a href="https://github.com/mobxjs/mobx">MobX</a></li>
+<li><a href="https://facebook.github.io/flux/">Flux</a> (par Facebook)  ➜ Est avant tout une architecture faite pour React, très similaire à Redux.</li>
+<li><a href="https://github.com/ngrx/platform">Ngrx</a>  ➜ Basé sur Redux, mais comprend des Observable, spécialisé pour Angular</li>
+<li>&hellip;</li>
+</ul>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>La notion de state management nous apporte les bénéfices suivants</p>
+
+<ul>
+<li>Plus de visiibilité sur les modifications d&rsquo;état, fini les objets modifiés par x références passées à droite à gauche.</li>
+<li>L&rsquo;application devient donc plus prédictible.</li>
+<li>Les modifications peuvent être tracés ou annulées ➜ les modifications étant toutes centralisées dans des reducers il est facile de donner un comportement par défaut à chacun.</li>
+<li>Plus de facilité pour tester l&rsquo;application ➜ Grâce à la propriété &ldquo;pure&rdquo; des fonctions</li>
+</ul>
+
+<p>Voila pour la partie théorique je vous propose maintenant de suivre sur l&rsquo;article suivant dont le sujet est l&rsquo;implémentation avec ngrx dans le cadre d&rsquo;une application Angular.
+Rendez-vous par là -&gt; <a href="/">Librairies NGRX pour une application Angular réactive. Part <sup>1</sup>&frasl;<sub>3</sub> : ngrx/store</a></p>
+
+</div>
+            <div class="footer">
+                
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>

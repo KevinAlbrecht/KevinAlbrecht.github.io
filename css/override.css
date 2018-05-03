@@ -1,0 +1,21 @@
+.sidebar > .sidebar-bottom{
+	text-align: center;
+	top:initial;
+	bottom:1em;
+}
+
+.sidebar { /*from hyde*/
+  text-align: center;
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,.5);
+  background-color: #0c250f;
+}
+
+a:hover, a:focus { /*from poole*/
+    text-decoration: none;
+}
+
+.headshot { /*from custom*/
+    width: 160px;
+    height: 160px;
+}

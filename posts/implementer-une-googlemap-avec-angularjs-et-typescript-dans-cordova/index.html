@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr-fr" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+    
+    <title>Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova &middot; Kevin ALBRECHT</title>
+    <meta content="Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova - Kevin ALBRECHT" property="og:title">
+    <meta content=" - Depuis quelques années il devient de plus en plus important de pouvoir permettre à une web application de fonctionner de façon offline (notamment pour les Single Page Applications)..." property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="http://example.org/css/print.css" media="print">
+    <link rel="stylesheet" href="http://example.org/css/poole.css">
+    <link rel="stylesheet" href="http://example.org/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="http://example.org/css/custom.css">
+        <link rel="stylesheet" href="http://example.org/css/override.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center"> 
+			<a href="http://example.org/"><h1 class="brand">Kevin ALBRECHT</h1></a>
+			<p class="lead">
+				 Développeur Web 
+			</p>
+			<ul>
+				
+				<li>
+					Angular
+				</li>
+				
+				<li>
+					Asp.net / core
+				</li>
+				
+				<li>
+					Cordova
+				</li>
+				
+			</ul>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+		</li>
+	</ul>
+</div>
+
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/kalbrecht_fr"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/Bubbuls"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/albrechtkevin/"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:kevin-albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+	</div>
+	<div>
+	</div>
+	<div class="sidebar-sticky sidebar-bottom">
+		<p class="copyright">&copy; 2018 .
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> 18/02/2016
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/angularjs">angularjs</a> 
+        
+            <a class="meta" href="/tags/cordova">cordova</a> 
+        
+            <a class="meta" href="/tags/google-map">google map</a> 
+        
+            <a class="meta" href="/tags/typescript">typescript</a> 
+        
+            <a class="meta" href="/tags/windows">windows</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 8 min read 
+      </span>  
+  </div>    
+  
+  
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Récemment nous avons dû afficher une GoogleMap dans une application Cordova.</p>
+
+<p>Lors de son initialisation, la librairie cherche à injecter dynamiquement des scripts nécessaires à son bon fonctionnement ce qui est, sur la plateforme Windows, interdit.
+Le seul moyen de le permettre est que la carte se retrouve sandboxée dans le composant <strong>ms-web-view</strong>.</p>
+
+<p>Nous avons donc des solutions différentes suivant la plateforme d’utilisation, c’est là que les “merges” de Cordova entrent en jeu, il va falloir une implémentation différente par plateforme sans faire faillir l&rsquo;IntelliSense et la compilation TypeScript.
+Si ce n’est pas déjà fait, je vous invite vivement à lire l’article de Sébastien Ollivier :</p>
+
+<p><a href="https://blogs.infinitesquare.com/posts/mobile/merges-cordova-application-angularjs-typescript">Utiliser les merges Cordova dans une application AngularJS avec TypeScript.</a></p>
+
+<p>Dans cet article nous allons voir comment implémenter 2 mécanismes différents tout en conservant un maximum de code commun</p>
+
+<h1 id="implémentation">Implémentation</h1>
+
+<p>L’implémentation se fera en 3 parties principales:</p>
+
+<ul>
+<li>Un service Angular MapSupervisorService  chargé de contenir toutes les méthodes de manipulation de la carte.</li>
+<li>Une directive MapDirective affichera la GoogleMap.</li>
+<li>Un 2eme service Angular spécifique par plateforme, pour pouvoir gérer indépendamment les spécificités de chacune.
+
+<ul>
+<li>MapHandlerForWindows</li>
+<li>MapHandlerForAndroid</li>
+</ul></li>
+</ul>
+
+<p><em>(Voir schéma utilisé dans l’article de Sebastien O. cité précédemment)</em></p>
+
+<h2 id="le-service">Le service</h2>
+
+<p>Le service regroupe les fonctions propres à GoogleMap comme l’initialisation de la carte avec les différentes options proposées par la librairie/sdk : son type ( satellite, terrain …etc ),  le niveau de zoom maximal ou minimal, l’autorisation de certaines manipulations de la carte ou encore les coordonnées de départ. On y trouvera aussi les abonnements aux différents évènements que la carte peut lever  ( zoom_changed, center_changed …etc. )</p>
+
+<pre><code>module project.Cartographie {
+    export class MapSupervisorService {
+        private map: google.maps.Map;
+        public mapConfiguration: IMapConfiguration;
+
+        initMap(elementId: string, mapConfiguration: IMapConfiguration) {
+            var element: HTMLElement;
+            element = document.getElementById(elementId);
+
+            this.map = new google.maps.Map(element, {
+                mapTypeControl: false,
+                overviewMapControl: false,
+                rotateControl: false,
+                streetViewControl: true,
+                mapTypeId: mapTypeId,
+                disableDefaultUI: false,
+                zoomControl: false,
+                center: new google.maps.LatLng(mapConfiguration.position.center.lat, mapConfiguration.position.center.lng),
+                zoom: mapConfiguration.zoom
+            });
+        }
+
+        setMapType = function (mapType: MapType) {
+
+            var mapTypeId;
+
+            switch (mapType) {
+                case MapType.Plan:
+                    mapTypeId = google.maps.MapTypeId.ROADMAP;
+                    break;
+                case MapType.Hybride:
+                    mapTypeId = google.maps.MapTypeId.HYBRID;
+                    break;
+                case MapType.Satellite:
+                    mapTypeId = google.maps.MapTypeId.SATELLITE;
+                    break;
+                case MapType.Terrain:
+                    mapTypeId = google.maps.MapTypeId.TERRAIN;
+                    break;
+            }
+
+            this.map.setMapTypeId(mapTypeId);
+        }
+
+    }
+	angular.module(&quot;project-cartographie&quot;).service(&quot;mapSupervisorService&quot;, [MapSupervisorService]);
+}
+</code></pre>
+
+<p><em>(MapSupervisorService)</em></p>
+
+<h2 id="la-directive-principale">La directive principale</h2>
+
+<p>Nous allons maintenant créer la directive angular  dans laquelle devra être injecté le MapHandler, le second service angular.</p>
+
+<p>Ici aussi la logique est plutôt simple, nous souhaitons simplement initialiser la carte dans la phase de link de notre directive.
+Mais à noter que le template de la directive n’est pas le même sur toutes les plateformes, nous faisons donc appel au MapHandler ( qui lui est spécifique par plateforme ) pour récupérer le template nécessaire.</p>
+
+<pre><code>export class MapDirective implements ng.IDirective {
+ 
+    //constructeur
+    //attributs
+    //etc 
+    [...]
+ 
+ 
+    template = this.mapHandler.getDirectiveTemplate();
+ 
+    link = (scope: IMapDirectiveScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) =&gt; {
+        var centerHasChanged = 0;
+        var zoomHasChanged = 0;
+        scope.zoom = 6;
+ 
+        this.mapHandler.configure(element[0].id,
+            {
+                mapType: scope.mapType,
+                zoom: scope.zoom,
+                position: {
+                    center: {
+                        lat: 46.8,
+                        lng: 1.7
+                    }
+                }
+            });
+    }
+ 
+    scope.$watch(() =&gt; {
+            return scope.mapType;
+        }, () =&gt; {
+            this.mapHandler.mapTypeWatchCallback(scope.mapType);
+        });
+     
+    [...]
+}
+</code></pre>
+
+<p><em>(MapSupervisorService)</em></p>
+
+<h2 id="la-directive-principale-1">La directive principale</h2>
+
+<p>Nous allons maintenant créer la directive angular  dans laquelle devra être injecté le MapHandler, le second service angular.</p>
+
+<p>Ici aussi la logique est plutôt simple, nous souhaitons simplement initialiser la carte dans la phase de link de notre directive.
+Mais à noter que le template de la directive n’est pas le même sur toutes les plateformes, nous faisons donc appel au MapHandler ( qui lui est spécifique par plateforme ) pour récupérer le template nécessaire.</p>
+
+<pre><code>export class MapDirective implements ng.IDirective {
+ 
+    //constructeur
+    //attributs
+    //etc 
+    [...]
+ 
+ 
+    template = this.mapHandler.getDirectiveTemplate();
+ 
+    link = (scope: IMapDirectiveScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) =&gt; {
+        var centerHasChanged = 0;
+        var zoomHasChanged = 0;
+        scope.zoom = 6;
+ 
+        this.mapHandler.configure(element[0].id,
+            {
+                mapType: scope.mapType,
+                zoom: scope.zoom,
+                position: {
+                    center: {
+                        lat: 46.8,
+                        lng: 1.7
+                    }
+                }
+            });
+    }
+ 
+    scope.$watch(() =&gt; {
+            return scope.mapType;
+        }, () =&gt; {
+            this.mapHandler.mapTypeWatchCallback(scope.mapType);
+        });
+     
+    [...]
+}
+</code></pre>
+
+<p><em>(MapDirective)</em></p>
+
+<h2 id="le-maphandler">Le MapHandler</h2>
+
+<p>Jusqu’ici tout est assez abstrait, nous allons voir le MapHandler, le cœur de notre solution qui va joindre la directive au service</p>
+
+<p>Android &amp; iOS</p>
+
+<p>Le mapHandler pour android &amp; iOS est le plus simple car il représente une implémentation basique de la GoogleMap.</p>
+
+<p>Nous devons définir :</p>
+
+<ul>
+<li>le script google à injecter, qui se trouve directement dans le constructeur de notre classe</li>
+</ul>
+
+<pre><code>constructor(
+    private $q: ng.IQService,
+    private $window: ng.IWindowService,
+    private mapSupervisorService: MapSupervisorService) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;callback=&lt;strong&gt;googleMapLoaded'&lt;/strong&gt;;
+    document.body.appendChild(script);
+ 
+    […]
+</code></pre>
+
+<p>Ici “googleMapLoaded” est une callback appelée lorsque toute l’API de google est bien chargée.</p>
+
+<ul>
+<li>Un getter du template du DOM pour la directive</li>
+</ul>
+
+<pre><code>getDirectiveTemplate(): string {
+    return '&lt;div class=&quot;map&quot;&gt; &lt;/div&gt;'
+}
+</code></pre>
+
+<ul>
+<li>une méthode de configuration qui permettra au mapSupervisorService de lancer l’initialisation de la carte. exemple :</li>
+</ul>
+
+<pre><code>configure(element: string, mapConfiguration) {
+    this.loadGoogleMap().then(()=&gt;
+    this.mapSupervisorService.initMap(domElement, mapConfiguration));
+}
+</code></pre>
+
+<p>à noter que “loadGoogleMap()” est une méthode pour nous assurer que les script soient bien chargés avant d’exécuter le code.</p>
+
+<p>Windows</p>
+
+<p>c’est ici que ça devient délicat, comme l’énonce la problématique, il nous est impossible d’injecter des scripts directement dans l’application, il faut donc passer par une iframe.</p>
+
+<p>Commençons donc par voir le template à donner à notre directive :</p>
+
+<pre><code>'&lt;x-ms-webview id=&quot;master&quot; scrolling=&quot;no&quot; draggable=&quot;false&quot; sandbox=&quot;allow-same-origin allow-scripts&quot; class=&quot;map&quot; style=&quot;position:absolute;&quot;&gt;&lt;/x-ms-webview&gt;'
+</code></pre>
+
+<p>Avant de continuer, petit point sur les webview pour pouvoir comprendre la suite.</p>
+
+<p>Les communications entre le scope courant et une iframe en faisant partie s’effectue avec les window.external.notify et invokeScriptAsync , donc à chaque fois qu’il faut exécuter une méthode pour l’iframe ( donc pour la GoogleMap) nous allons devoir passer par l’invokeScriptAsync de la fonction native “eval” avec en paramètre notre code sérialisé.</p>
+
+<p>Nous pouvons maintenant nous occuper de la méthode configure , en effet celle-ci va prendre en charge le chargement et la configuration de l’iframe. va se découper en 2 actions:</p>
+
+<ul>
+<li>l’insertion de la vue dans l’iframe</li>
+</ul>
+
+<pre><code>var domElement = document.getElementById(element);
+this.webview = &lt;MSHTMLWebViewElement&gt;domElement;
+this.webview.src = &quot;ms-appx-web:///www/views/_iframeMaster.html&quot;;
+</code></pre>
+
+<ul>
+<li>l’abonnement aux évènements de l’iframe :
+
+<ul>
+<li>MSWebViewScriptNotify qui est l’évènement par défaut d’une notification venant de l’iframe.</li>
+<li>MSWebViewNavigationCompleted qui permet de savoir quand l’iframe est chargé.</li>
+</ul></li>
+</ul>
+
+<pre><code>this.webview.addEventListener(&quot;MSWebViewScriptNotify&quot;, (evt: any) =&gt; {
+    var event: Cartographie.INotification = JSON.parse(evt.value)
+    if (event.notificationType === Cartographie.NotificationType.Loaded) {
+        this.iframeCompletelyLoaded();
+    }
+});
+ 
+this.webview.addEventListener(&quot;MSWebViewNavigationCompleted&quot;, () =&gt; {
+    var asyncOp = this.webview.invokeScriptAsync(
+        &quot;eval&quot;,
+        this.prepareMsWebview());
+ 
+    asyncOp.oncomplete = (success) =&gt; {
+        //Pas utile à exploiter
+        //nous attendrons que la webview nous notifie
+    }
+    asyncOp.onerror = (err) =&gt; {
+        //Alerter d'une erreur
+    };
+    asyncOp.start();
+});
+</code></pre>
+
+<p>Voilà pour la méthode configure, mais regardons de plus près l’initialisation des scripts GoogleMap, à exécuter cette fois-ci dans l’iframe grâce à “prepareMsWebview”</p>
+
+<pre><code>(&lt;any&gt;window).map = null;
+(&lt;any&gt;window).googleMapLoaded = function () {
+    notifyMethod(iframeNotification);
+};
+(&lt;any&gt;window).Cartographie = { MapType: null };
+(&lt;any&gt;window).Cartographie.MapType = mapTypeEnum;
+ 
+//[…]
+ 
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;callback=googleMapLoaded';
+document.body.appendChild(script);
+</code></pre>
+
+<p>à noter que nous utilisons des variables globales, pour simplifier nos scripts lors de prochaines exécutions nécessitant d’utiliser l’objet Cartographie.</p>
+
+<p>Il ne faut pas oublier que notre méthode sera sérialisée afin d’être envoyée à la webview (pour plus de détails sur ce morceau de code et sur la sérialisation des fonctions, voir le chapitre “En complément” en fin d’article. ) ,l’important est de savoir que “notifyMethod()” permet de lever un évènement MSWebViewScriptNotify  qui nous avertira que les scripts de google sont bien chargés.</p>
+
+<p>Et voilà. vous disposez maintenant d’une carte Google initialisée dans votre webview et pour exécuter un appel à la carte il ne vous reste plus qu’à sérialiser l’action et l’envoyer grâce à l’invokescript.</p>
+
+<h1 id="en-complément">En complément</h1>
+
+<p><em>Un dernier exemple d’instruction vers la ms-webview ?</em></p>
+
+<p>Dans la directive et dans le superviseur, il y a des méthodes pour modifier le “mapType” qui est la carte voulue (satellite, hybrid …etc.)</p>
+
+<p>Si nous suivons la logique de l’article, voilà ce qu’il faudrait ajouter au MapHandlerForWindows pour réussir à modifier le type de carte de la GoogleMap:</p>
+
+<pre><code>public mapTypeWatchCallback(mapType: MapType) {
+    this.loadGoogleMap().then(() =&gt; {
+        var setMapTypeMethod = this.makeAutoEvaluable(
+            this.mapSupervisorService.setMapType,
+            mapType
+        );
+ 
+        var asyncOp = this.webview.invokeScriptAsync(
+            &quot;eval&quot;,
+            setMapTypeMethod);
+        asyncOp.oncomplete = (success) =&gt; {
+            //success
+        }
+        asyncOp.onerror = (err) =&gt; {
+            //err
+        };
+        asyncOp.start();
+    });
+}
+</code></pre>
+
+<p><em>Comment sérialiser une méthode et ses paramètres de façon générique ?</em></p>
+
+<p>Voilà une astuce très utile (et plutôt sexy ) pour ce qui est de communiquer avec une iframe, proposé par <a href="https://blogs.infinitesquare.com/users/touvre">Thomas Ouvré</a></p>
+
+<pre><code>private makeAutoEvaluable(func: (...args: any[]) =&gt; any, ...args: any[]): string {
+    return `(${(&lt;any&gt;func).toString()})(${args.join(&quot;,&quot;)});`;
+}
+</code></pre>
+
+<p>Cette fonction assez barbare à première vue est finalement assez simple:</p>
+
+<p>on passe en paramètre une fonction ou nous allons définir le code à exécuter dans l’iframe, puis en second une série de paramètres qui seront disponibles dans ce scope .</p>
+
+<p>Maintenant jetons un œil à un cas concret d’utilisation, nous avons parlé de la méthode “prepareMsWebview”, voilà le code réel de la fonction.</p>
+
+<pre><code>private prepareMsWebview() {
+ 
+    return this.makeAutoEvaluable(
+//Reference vers les paramètres à mapper
+(notifyMethod, iframeNotification, mapTypeEnum ) =&gt; {
+        debugger;
+        (&lt;any&gt;window).map = null;
+        (&lt;any&gt;window).googleMapLoaded = function () {
+            notifyMethod(iframeNotification);
+        };
+        (&lt;any&gt;window).Cartographie = { MapType: null };
+        (&lt;any&gt;window).Cartographie.MapType = mapTypeEnum;&lt;br&gt;
+     
+    //[…]
+ 
+    var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;callback=googleMapLoaded';
+        document.body.appendChild(script);
+    },
+        //Parametres qui seront mappés à l'eval final.
+        this.notifyApp.toString(),
+        JSON.stringify(loadedNotification),
+        JSON.stringify(Cartographie.MapType));
+}
+</code></pre>
+
+<p>En fait, nous avons besoin de sérialiser le contenu et pour ce qui est du code qui appartient à notre scope, il est simplement passé en paramètre (lui aussi sérialisé) pour pouvoir y être “copié” pour être exécuté</p>
+
+<p>Et voilà. L’article est quelque peu compliqué mais comporte plusieurs points importants dans l’utilisation des fichiers “merges” de cordova , et vous donne les cartes en main pour pouvoir communiquer avec les iframes.</p>
+
+</div>
+            <div class="footer">
+                
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>

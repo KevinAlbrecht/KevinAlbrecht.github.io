@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Certificat on Kevin ALBRECHT</title>
+    <link>http://example.org/tags/certificat/</link>
+    <description>Recent content in Certificat on Kevin ALBRECHT</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Thu, 11 Feb 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/certificat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Utiliser un certificat d’entreprise pour un package Windows pour Cordova</title>
+      <link>http://example.org/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</guid>
+      <description>En ce qui concerne les application pour la plateforme Windows, il peut arriver même lors de phases de recettes d’avoir à utiliser un certificat Entreprise, sauf que contrairement à un projet d’application Windows 8.1&amp;frasl;10, nous ne disposons pas de simple bouton pour importer un certificat.
+La tâche est très simple mais juste un peu plus longue que pour les applications traditionnelles, voilà les étapes de packaging:
+Première étape: Installer et ajouter le certificat En effet il est nécessaire d’installer le certificat, lorsque vous êtes sur les options d’installation, pensez à bien sélectionner l’utilisateur courant puis le magasin“Personnel” pour éviter toute erreur lors de la build, puis ajoutez le certificat dans le dossier de ressources native.</description>
+    </item>
+    
+  </channel>
+</rss>

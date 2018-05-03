@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr-fr" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+    
+    <title>Utiliser Les Fonctionnalites Du Cache Html 5 &middot; Kevin ALBRECHT</title>
+    <meta content="Utiliser Les Fonctionnalites Du Cache Html 5 - Kevin ALBRECHT" property="og:title">
+    <meta content=" - Depuis quelques années il devient de plus en plus important de pouvoir permettre à une web application de fonctionner de façon offline (notamment pour les Single Page Applications)..." property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="http://example.org/css/print.css" media="print">
+    <link rel="stylesheet" href="http://example.org/css/poole.css">
+    <link rel="stylesheet" href="http://example.org/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="http://example.org/css/custom.css">
+        <link rel="stylesheet" href="http://example.org/css/override.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center"> 
+			<a href="http://example.org/"><h1 class="brand">Kevin ALBRECHT</h1></a>
+			<p class="lead">
+				 Développeur Web 
+			</p>
+			<ul>
+				
+				<li>
+					Angular
+				</li>
+				
+				<li>
+					Asp.net / core
+				</li>
+				
+				<li>
+					Cordova
+				</li>
+				
+			</ul>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+		</li>
+	</ul>
+</div>
+
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/kalbrecht_fr"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/Bubbuls"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/albrechtkevin/"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:kevin-albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+	</div>
+	<div>
+	</div>
+	<div class="sidebar-sticky sidebar-bottom">
+		<p class="copyright">&copy; 2018 .
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>Utiliser Les Fonctionnalites Du Cache Html 5</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> 20/03/2015
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/html5">html5</a> 
+        
+            <a class="meta" href="/tags/cache">cache</a> 
+        
+            <a class="meta" href="/tags/manifest">manifest</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 5 min read 
+      </span>  
+  </div>    
+  
+  
+
+<p>Depuis quelques années il devient de plus en plus important de pouvoir permettre à une web application de fonctionner de façon offline (notamment pour les Single Page Applications). Grace aux spécifications HTML5 de nombreux outils sont à notre disposition dans 2 catégories , le Storage et le Cache. Ici nous allons voir comment exploiter les fonctionnalités du Cache à bon escient.</p>
+
+<h1 id="comment-fonctionne-le-cache-html-5">Comment fonctionne le cache HTML 5 ?</h1>
+
+<p>Le cache HTML5 est une spécification qui apporte une logique unique aux navigateurs pour gérer les ressources (html, javascript, CSS, images …etc), il est compatible avec tous les navigateurs récents et à partir d&rsquo;Internet Explorer 10. Il est possible de le configurer via un simple fichier appelé: “manifest”.</p>
+
+<h2 id="cache-manifest">Cache Manifest</h2>
+
+<p>Pour pouvoir configurer le cache il nous suffit donc de créer son manifeste &ldquo;cache.manifest&rdquo; par exemple, puis de le référencer comme ceci sur toutes les pages de votre application :</p>
+
+<pre><code class="language-html">&lt;html manifest=&quot;site.manifest&quot;&gt;
+</code></pre>
+
+<p><em>Sachez que le nom et l’extension de fichier ne sont pas importants tant que celui-ci est associé au bon type MIME : “text/cache-manifest”</em></p>
+
+<p>En ce qui concerne le contenu du manifeste, la première ligne doit être l’entête “CACHE MANIFEST” elle peut être suivie d’une note en commentaire (grâce au symbole “#”) indiquant généralement un timestamp et la version actuelle du manifeste, ce qui permet au navigateur de détecter une modification et de revérifier les ressources.</p>
+
+<p>La suite est divisée en plusieurs parties :</p>
+
+<ul>
+<li>CACHE qui définit les ressources à impérativement mettre en cache.</li>
+<li>FALLBACK qui permet de donner des ressources alternatives si la récupération de l’une d’elles depuis le cache échoue.</li>
+<li>NETWORK, ordonne au navigateur de récupérer les ressources choisies depuis le serveur sans les sauvegarder dans le cache. On peut utiliser le symbole “ * ” pour spécifier toutes les ressources n’appartenant pas aux catégories précédentes.</li>
+</ul>
+
+<p>Voilà un exemple:</p>
+
+<pre><code>CACHE MANIFEST
+# 18-03-2015 v1.1.7
+
+CACHE:
+index.html
+content/site.css
+app/application.js
+
+NETWORK:
+*
+</code></pre>
+
+<h2 id="explications">Explications</h2>
+
+<p>Lors de la première navigation sur le site, le navigateur va télécharger la page HTML comme il le ferait pour tout autre site web et si l’attribut manifest est renseigné le navigateur va alors  récupérer le manifeste avec le chemin donné, puis requêter toutes les ressources spécifiées dans la section CACHE  pour les stocker dans le cache avec le manifeste courant. Suite à ça le navigateur requêtera les autres ressources simplement avec ou sans fallback suivant votre configuration.</p>
+
+<p><em>Attention, la sauvegarde du manifeste par le navigateur est automatique, il faut faire attention à ne pas référencer explicitement le manifeste dans la section CACHE, sinon le navigateur ne pourra jamais être conscient d’une nouvelle version.</em></p>
+
+<p>Lorsque le navigateur accèdera une prochaine fois sur l’application web, il récupèrera automatiquement les ressources ( spécifiés dans la section CACHE ) depuis son cache sans les requêter au serveur, le manifeste coté serveur sera évalué pour vérifier si ce dernier a été modifié, d’où l’importance d’ajouter un en tête avec la version et/ou la date de mise à jour  de vos ressources car même si vous ne modifiez pas la configuration de votre manifeste il est nécessaire de déclarer une nouvelle version de celui-ci pour que les clients téléchargent une nouvelle fois les ressources si vous avez effectué une modification sur l’une d’elles.</p>
+
+<h1 id="api-javascript-offline">API Javascript Offline</h1>
+
+<p>Maintenant que nous connaissons le fonctionnement de la mise en cache, intéressons nous à l’API Javascript</p>
+
+<h2 id="applicationcache-api">ApplicationCache API</h2>
+
+<p>Les navigateurs ont aussi accès à l’objet window.applicationCache qui nous permet d’interagir avec le cache de l’application, cet objet nous met à disposition d’abord une suite d’évènements en fonction de l’état de la mise en cache :</p>
+
+<ul>
+<li>downloading : Lorsque le téléchargement des ressources commence, nous affichons alors notre barre de progression</li>
+<li>checking : Le navigateur compare le manifeste courant avec celui du serveur pour détecter d’éventuels changements ou s’apprête à récupérer le manifeste pour la première fois.</li>
+<li>progress : Lorsqu’un fichier de ressource est chargé cet évènement nous retourne un objet “ProgressEvent” donc les attributs “loaded” et “total” désignent respectivement le nombre de ressources chargés et le total des ressources.</li>
+<li>cached : toutes les ressources spécifiées par le manifeste ont bien été chargés localement et l’application est prête.</li>
+<li>updateready : une nouvelle version des ressources du cache sont disponible sur le serveur, à nous d’utiliser la méthode swapCache() pour renouveler les ressources.</li>
+<li>noupdate : le manifeste n’a pas changé, les ressources non plus.</li>
+<li>obsolete : le manifeste est introuvable, toute la logique de cache est alors abandonnée et le cache vidé.</li>
+<li>error : Une erreur quelconque est survenue, le processus de cache s’arrête là.</li>
+</ul>
+
+<p>L’objet nous permet aussi d’accéder à l’état de la mise en cache aussi via la propriété status et enfin expose les methodes update() pour lancer une la vérification d’une nouvelle version des ressources et swapCache() pour remplacer le cache avec un nouveau.</p>
+
+<h2 id="exemple-d-utilisation-de-l-api-pour-créer-une-progress-bar">Exemple d’utilisation de l’API pour créer une progress-bar</h2>
+
+<p>Nous voulons créer une barre de progression qui indique l’état de chargement des ressources lors de l’initialisation d’une WebApp. Le processus est simple, afficher la progression dés la mise en cache des ressources, la faire progresser en fonction de l’avancement puis afficher le résultat si tout s’est bien passé ou si une erreur est survenue.</p>
+
+<p>On implémente tout d’abord les methodes pour manipuler la barre de progression :</p>
+
+<pre><code>function showProgressBar() {
+    var progressBar = &quot;&lt;div class='progress-bar'&gt;&lt;progress id='progressBar' max='100' value='0'&gt;&lt;/progress&gt;&lt;div class='message'&gt;Mise en cache de l'application &lt;span id='progress-message'&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&quot;;
+    $(&quot;body&quot;).append(progressBar );
+    $(&quot;.progress-bar&quot;).fadeIn(&quot;slow&quot;);
+    }
+}
+     
+     
+function updateProgressBar(loaded, total) {
+    var pourcentage = Math.round(loaded / total * 100);
+     
+    $(&quot;#progressBar&quot;).attr(&quot;value&quot;, pourcentage);
+    $(&quot;#progress-message&quot;).text(pourcentage + &quot; %&quot;);
+}
+     
+     
+function cacheFailed() {
+    hideProgressBar(&quot;Une erreur est survenu lors de la mise en cache de l'application&quot;);
+}
+     
+function cacheSucceed() {
+    hideProgressBar(&quot;L'application a été correctement mise en cache&quot;);
+}
+</code></pre>
+
+<p>Et maintenant les abonnements aux évenements :</p>
+
+<pre><code>applicationCache.addEventListener('downloading', function (e) {
+showProgressBar();
+}, false);
+ 
+applicationCache.addEventListener('progress', function (e) {
+updateProgressBar(e.loaded, e.total);
+}, false);
+ 
+applicationCache.addEventListener('cached', function (e) {
+cacheSucceed();
+}, false);
+ 
+applicationCache.addEventListener('updateready', function (e) {
+appCache.swapCache();
+}, false);
+ 
+applicationCache.addEventListener('noupdate', function (e) {
+cacheSucceed();
+}, false);
+ 
+applicationCache.addEventListener('error', function (e) {
+cacheFailed();
+}, false);
+</code></pre>
+
+<p>Voila le résultat :</p>
+
+<p><img src="/cache-mobile-view_219204D2.gif" alt="result image" /></p>
+
+<p>Evidement pour beaucoup de WebApp le chargement sera quasi instantané depuis un ordinateur, mais avoir une barre de chargement prend du sens pour une navigation depuis un mobile ou un device où la connexion est souvent plus lente.</p>
+
+</div>
+            <div class="footer">
+                
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>
