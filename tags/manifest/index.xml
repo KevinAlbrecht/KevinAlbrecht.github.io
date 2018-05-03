@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Manifest on Kevin ALBRECHT</title>
-    <link>http://example.org/tags/manifest/</link>
+    <link>https://bubbuls.github.io/tags/manifest/</link>
     <description>Recent content in Manifest on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Fri, 20 Mar 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/manifest/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bubbuls.github.io/tags/manifest/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Utiliser Les Fonctionnalites Du Cache Html 5</title>
-      <link>http://example.org/posts/utiliser-les-fonctionnalites-du-cache-html-5/</link>
+      <link>https://bubbuls.github.io/posts/utiliser-les-fonctionnalites-du-cache-html-5/</link>
       <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/utiliser-les-fonctionnalites-du-cache-html-5/</guid>
+      <guid>https://bubbuls.github.io/posts/utiliser-les-fonctionnalites-du-cache-html-5/</guid>
       <description>Depuis quelques années il devient de plus en plus important de pouvoir permettre à une web application de fonctionner de façon offline (notamment pour les Single Page Applications). Grace aux spécifications HTML5 de nombreux outils sont à notre disposition dans 2 catégories , le Storage et le Cache. Ici nous allons voir comment exploiter les fonctionnalités du Cache à bon escient.
 Comment fonctionne le cache HTML 5 ? Le cache HTML5 est une spécification qui apporte une logique unique aux navigateurs pour gérer les ressources (html, javascript, CSS, images …etc), il est compatible avec tous les navigateurs récents et à partir d&amp;rsquo;Internet Explorer 10.</description>
     </item>

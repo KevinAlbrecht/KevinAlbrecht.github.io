@@ -2,156 +2,156 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Kevin ALBRECHT</title>
-    <link>http://example.org/tags/</link>
+    <link>https://bubbuls.github.io/tags/</link>
     <description>Recent content in Tags on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Thu, 18 Feb 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bubbuls.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Angularjs</title>
-      <link>http://example.org/tags/angularjs/</link>
+      <link>https://bubbuls.github.io/tags/angularjs/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/angularjs/</guid>
+      <guid>https://bubbuls.github.io/tags/angularjs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure</title>
-      <link>http://example.org/tags/azure/</link>
+      <link>https://bubbuls.github.io/tags/azure/</link>
       <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/azure/</guid>
+      <guid>https://bubbuls.github.io/tags/azure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cache</title>
-      <link>http://example.org/tags/cache/</link>
+      <link>https://bubbuls.github.io/tags/cache/</link>
       <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/cache/</guid>
+      <guid>https://bubbuls.github.io/tags/cache/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Certificat</title>
-      <link>http://example.org/tags/certificat/</link>
+      <link>https://bubbuls.github.io/tags/certificat/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/certificat/</guid>
+      <guid>https://bubbuls.github.io/tags/certificat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cordova</title>
-      <link>http://example.org/tags/cordova/</link>
+      <link>https://bubbuls.github.io/tags/cordova/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/cordova/</guid>
+      <guid>https://bubbuls.github.io/tags/cordova/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Event Hub</title>
-      <link>http://example.org/tags/event-hub/</link>
+      <link>https://bubbuls.github.io/tags/event-hub/</link>
       <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/event-hub/</guid>
+      <guid>https://bubbuls.github.io/tags/event-hub/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Google Map</title>
-      <link>http://example.org/tags/google-map/</link>
+      <link>https://bubbuls.github.io/tags/google-map/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/google-map/</guid>
+      <guid>https://bubbuls.github.io/tags/google-map/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Html5</title>
-      <link>http://example.org/tags/html5/</link>
+      <link>https://bubbuls.github.io/tags/html5/</link>
       <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/html5/</guid>
+      <guid>https://bubbuls.github.io/tags/html5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Iot</title>
-      <link>http://example.org/tags/iot/</link>
+      <link>https://bubbuls.github.io/tags/iot/</link>
       <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/iot/</guid>
+      <guid>https://bubbuls.github.io/tags/iot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Iot Hub</title>
-      <link>http://example.org/tags/iot-hub/</link>
+      <link>https://bubbuls.github.io/tags/iot-hub/</link>
       <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/iot-hub/</guid>
+      <guid>https://bubbuls.github.io/tags/iot-hub/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Manifest</title>
-      <link>http://example.org/tags/manifest/</link>
+      <link>https://bubbuls.github.io/tags/manifest/</link>
       <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/manifest/</guid>
+      <guid>https://bubbuls.github.io/tags/manifest/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Promises</title>
-      <link>http://example.org/tags/promises/</link>
+      <link>https://bubbuls.github.io/tags/promises/</link>
       <pubDate>Tue, 16 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/promises/</guid>
+      <guid>https://bubbuls.github.io/tags/promises/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redux</title>
-      <link>http://example.org/tags/redux/</link>
+      <link>https://bubbuls.github.io/tags/redux/</link>
       <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/redux/</guid>
+      <guid>https://bubbuls.github.io/tags/redux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Typescript</title>
-      <link>http://example.org/tags/typescript/</link>
+      <link>https://bubbuls.github.io/tags/typescript/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/typescript/</guid>
+      <guid>https://bubbuls.github.io/tags/typescript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Webapp</title>
-      <link>http://example.org/tags/webapp/</link>
+      <link>https://bubbuls.github.io/tags/webapp/</link>
       <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/webapp/</guid>
+      <guid>https://bubbuls.github.io/tags/webapp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Windows</title>
-      <link>http://example.org/tags/windows/</link>
+      <link>https://bubbuls.github.io/tags/windows/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/windows/</guid>
+      <guid>https://bubbuls.github.io/tags/windows/</guid>
       <description></description>
     </item>
     
