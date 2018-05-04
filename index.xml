@@ -6,10 +6,30 @@
     <description>Recent content on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 11 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Feb 2018 22:37:34 +0200</lastBuildDate>
     
 	<atom:link href="https://bubbuls.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Librairies Ngrx Pour Une Application Angular Reactive Part 2 Ngrx Effects</title>
+      <link>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/</link>
+      <pubDate>Mon, 12 Feb 2018 22:37:34 +0200</pubDate>
+      
+      <guid>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/</guid>
+      <description>Vous voici sur la partie 2 de cet article où nous allons implémenter un Effect. Si vous n&amp;rsquo;avez pas vu la première partie, c&amp;rsquo;est ici :Librairies NGRX pour une application Angular réactive. Part 1&amp;frasl;3 : ngrx/store
+ngrx/effects ngrx/effects ? Les reducers sont dits &amp;ldquo;purs&amp;rdquo; et ne doivent donc en aucun cas récupérer une donnée autre que leurs paramètres, nous allons donc rajouter un middleware pour volontairement introduire du &amp;ldquo;side effect&amp;rdquo; qui représentera nos intéractions serveur.</description>
+    </item>
+    
+    <item>
+      <title>Librairies Ngrx Pour Une Application Angular Reactive Part 1 Ngrx Store</title>
+      <link>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/</link>
+      <pubDate>Mon, 12 Feb 2018 14:20:40 +0200</pubDate>
+      
+      <guid>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/</guid>
+      <description>Mon article précédent traitait globalement de l&amp;rsquo;architecture proposée par Redux pour des web app dites &amp;ldquo;réactives&amp;rdquo;. Je vous recommande de le lire si vous n&amp;rsquo;êtes pas familier avec Redux : Le State management pour les webapps avec Redux.
+Maintenant, sur le même sujet, nous allons nous concentrer sur les applications Angular et nous allons voir des librairies de la team ngrx. Cet article est divisé en 3 parties :</description>
+    </item>
     
     <item>
       <title>Le State management pour les webapps avec Redux</title>

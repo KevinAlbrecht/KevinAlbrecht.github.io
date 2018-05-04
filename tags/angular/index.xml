@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Redux on Kevin ALBRECHT</title>
-    <link>https://bubbuls.github.io/tags/redux/</link>
-    <description>Recent content in Redux on Kevin ALBRECHT</description>
+    <title>Angular on Kevin ALBRECHT</title>
+    <link>https://bubbuls.github.io/tags/angular/</link>
+    <description>Recent content in Angular on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Mon, 12 Feb 2018 22:37:34 +0200</lastBuildDate>
     
-	<atom:link href="https://bubbuls.github.io/tags/redux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bubbuls.github.io/tags/angular/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -29,15 +29,6 @@ ngrx/effects ngrx/effects ? Les reducers sont dits &amp;ldquo;purs&amp;rdquo; et
       <guid>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/</guid>
       <description>Mon article précédent traitait globalement de l&amp;rsquo;architecture proposée par Redux pour des web app dites &amp;ldquo;réactives&amp;rdquo;. Je vous recommande de le lire si vous n&amp;rsquo;êtes pas familier avec Redux : Le State management pour les webapps avec Redux.
 Maintenant, sur le même sujet, nous allons nous concentrer sur les applications Angular et nous allons voir des librairies de la team ngrx. Cet article est divisé en 3 parties :</description>
-    </item>
-    
-    <item>
-      <title>Le State management pour les webapps avec Redux</title>
-      <link>https://bubbuls.github.io/posts/le-state-management-pour-les-webapps-avec-redux/</link>
-      <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://bubbuls.github.io/posts/le-state-management-pour-les-webapps-avec-redux/</guid>
-      <description>Introduction Problématique Dans une web app simple, par défaut on va permettre à nos composants de consommer de la donnée : un composant peut lire, créer ou éditer une donnée &amp;ldquo;A&amp;rdquo; , tandis qu&amp;rsquo;un autre peut lui aussi modifier cette donnée &amp;ldquo;A&amp;rdquo;, et qu&amp;rsquo;un troisième composant va pouvoir éditer une propriété de la donnée &amp;ldquo;A&amp;rdquo;. Il est facile d&amp;rsquo;avoir la référence d&amp;rsquo;un objet distribué à droite à gauche et de permettre un accès vers de multiples composants.</description>
     </item>
     
   </channel>

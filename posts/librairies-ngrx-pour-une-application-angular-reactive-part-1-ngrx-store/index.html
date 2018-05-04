@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="fr-fr" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+    
+    <title>Librairies Ngrx Pour Une Application Angular Reactive Part 1 Ngrx Store &middot; Kevin ALBRECHT</title>
+    <meta content="Librairies Ngrx Pour Une Application Angular Reactive Part 1 Ngrx Store - Kevin ALBRECHT" property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://bubbuls.github.io/css/print.css" media="print">
+    <link rel="stylesheet" href="https://bubbuls.github.io/css/poole.css">
+    <link rel="stylesheet" href="https://bubbuls.github.io/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://bubbuls.github.io/css/custom.css">
+        <link rel="stylesheet" href="https://bubbuls.github.io/css/override.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center"> 
+			<a href="https://bubbuls.github.io/"><h1 class="brand">Kevin ALBRECHT</h1></a>
+			<p class="lead">
+				 Développeur Web 
+			</p>
+			<ul>
+				
+				<li>
+					Angular
+				</li>
+				
+				<li>
+					Asp.net / core
+				</li>
+				
+				<li>
+					Cordova
+				</li>
+				
+			</ul>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+		</li>
+	</ul>
+</div>
+
+			<p id="niconico"></p>
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/kalbrecht_fr"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/Bubbuls"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/albrechtkevin/"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:kevin-albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+	</div>
+	<div>
+	</div>
+	<div class="sidebar-sticky sidebar-bottom">
+		<p class="copyright">&copy; 2018 .
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+</div>
+<script>
+	var el = document.getElementById("niconico");
+	console.log("el",el);
+	var baseUri = "http://nicovideo.cdn.nimg.jp/web/img/base/head/icon/nico/";
+	var extension = ".gif";
+	var list = ["000","005","007","008","010","011","012","013","014","015","016","018","019","020","022","023","024","026","028","031","032","033","034","035","038","039","040","046","050","052","053","058","061","063","075","078","089","092","094","104","118","127","131","132","135"];
+	function getIndex(max) {
+		return Math.floor(Math.random() * Math.floor(max));
+	}
+	var index = getIndex(list.length-1);
+	var content = "<img style='display:inline' src='"+baseUri+list[index]+extension+"' />"
+	el.innerHTML = content;
+</script>
+<img src="">
+        <div class="content container">
+            <div class="post">
+  <h1>Librairies Ngrx Pour Une Application Angular Reactive Part 1 Ngrx Store</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> 12/02/2018
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/angular">angular</a> 
+        
+            <a class="meta" href="/tags/ngrx">ngrx</a> 
+        
+            <a class="meta" href="/tags/redux">redux</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 8 min read 
+      </span>  
+  </div>    
+  
+  
+
+<p>Mon article précédent traitait globalement de l&rsquo;architecture proposée par Redux pour des web app dites &ldquo;réactives&rdquo;. Je vous recommande de le lire si vous n&rsquo;êtes pas familier avec Redux : <a href="/">Le State management pour les webapps avec Redux.</a></p>
+
+<p>Maintenant, sur le même sujet, nous allons nous concentrer sur les applications Angular et nous allons voir des librairies de la team ngrx. Cet article est divisé en 3 parties :</p>
+
+<ul>
+<li>ngrx/store: la brique principale représentant l&rsquo;ensemble du store redux.</li>
+<li>ngrx/effects: une librairie de side-effect, pour nous permettre de communiquer avec une donnée externe ( ex: une API ).</li>
+<li>ngrx/router-store: tout simplement un pont entre notre router angular et le store redux.</li>
+</ul>
+
+<h1 id="ngrx-store">ngrx/store</h1>
+
+<p><img src="/ngrx.png" alt="ngrx" /></p>
+
+<h1 id="notions">Notions</h1>
+
+<h2 id="qu-est-ce-que-ngrx-store">Qu&rsquo;est ce que ngrx/store ?</h2>
+
+<p>Le ngrx/store est tout simplement une librairie fournissant les éléments (actions, dispatcher, reducer &hellip;etc.) pour une architecture &ldquo;reactive&rdquo; type state management, basée sur Redux. Elle fonctionne avec RxJS ( donc Observable based ), implémentée avec Typescript et donc tout bonnement adaptée pour Angular.</p>
+
+<p>Github → <a href="https://github.com/ngrx/platform/tree/master/docs/store">https://github.com/ngrx/platform/tree/master/docs/store</a></p>
+
+<h2 id="container-components-vs-presentational-components">Container components vs Presentational Components</h2>
+
+<p>Il faut bien dissocier 2 types de composants dans l&rsquo;architecture Redux, la différence est très simpliste :</p>
+
+<ul>
+<li>Le Container Component fait partie du dataflow de Redux
+
+<ul>
+<li>Récupère la donnée du Store</li>
+<li>Dispatch des actions</li>
+</ul></li>
+<li>Le Presentational Component n&rsquo;a aucun lien avec le cycle de Redux ( les points ci-dessous étant spécifiques à Angular )
+
+<ul>
+<li>Récupère la donnée par des binding @Input()</li>
+<li>Rappelle une action via un binding @Output()</li>
+</ul></li>
+</ul>
+
+<p>exemple:</p>
+
+<p><img src="/ngrx1/components.png" alt="container vs presentational" /></p>
+
+<h1 id="mise-en-place">Mise en place</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>⚐ Je passe sur certains détails Typescript, imports de modules &hellip;etc. Et je ne montre pas tout le découpage, mais tout ceci est visible via un lien vers le code complet à la fin de l&rsquo;article, enjoy.</p>
+
+<p>Pour l&rsquo;exemple, nous allons créer un simple listing d&rsquo;éléments, en l&rsquo;occurence des films (pour info je pars d&rsquo;une application générée par la cli angular, attention nous réutiliserons ce projet pour les parties 2 et 3 de cet article)</p>
+
+<p>Dans l&rsquo;ordre nous allons voir:</p>
+
+<ul>
+<li>Le data flow grâce au Store
+
+<ul>
+<li>Les Actions</li>
+<li>Notre State</li>
+<li>Notre Reducer</li>
+<li>Les Selectors</li>
+</ul></li>
+<li>Un appel depuis un component</li>
+</ul>
+
+<h2 id="création-des-actions">Création des Actions</h2>
+
+<p>Tout d&rsquo;abord nous allons créer des actions liées aux différents états de la récupération d&rsquo;un film. Pour rappel une action est simplement une association d&rsquo;un type et d&rsquo;un payload.</p>
+
+<ul>
+<li>Les films sont en chargement.</li>
+<li>Les films ont été chargés avec succés.</li>
+<li>Une erreur est survenue ( veuillez réessayer plus t&hellip; ) pendant le chargement des films.</li>
+</ul>
+
+<p><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Action</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@ngrx/store&#39;</span>;
+ 
+<span style="color:#75715e">// Les types des differentes actions
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">GET_MOVIES</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GET_MOVIES&#39;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">GET_MOVIES_SUCCESS</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GET_MOVIES_SUCCESS&#39;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">GET_MOVIES_ERROR</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GET_MOVIES_ERROR&#39;</span>;
+ 
+<span style="color:#75715e">// Les actions
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetMovieAction</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">Action</span> {
+  <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">GET_MOVIES</span>;
+}
+ 
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetMovieActionSuccess</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">Action</span> {
+  <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">GET_MOVIES_SUCCESS</span>;
+  <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">payload</span>: <span style="color:#66d9ef">any</span>) { }
+}
+ 
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetMovieActionError</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">Action</span> {
+  <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">GET_MOVIES_ERROR</span>;
+  <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">payload</span>: <span style="color:#66d9ef">any</span>) { }
+}</code></pre></td></tr></table>
+</div>
+</div>
+⚐ Attention, on implémente l&rsquo;interface &ldquo;Action&rdquo; cependant elle ne possède que la propriété type (le payload ayant été enlevé de l&rsquo;interface &hellip;), le moyen le plus répandu est de rajouter la propriété en public directement dans le constructeur.</p>
+
+<h2 id="création-du-reducer">Création du Reducer</h2>
+
+<p>Pour pouvoir créer notre Reducer j&rsquo;ai besoin d&rsquo;avoir un State, simple interface avec une propriété Data pour contenir la donnée ( en l&rsquo;occurence un tableau de Movie ), un booléen pour signifier si nous sommes en chargement et une erreur. Nous verrons après comment rattacher ce modèle au Store.</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// State Type
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">MoviesState</span> {
+  <span style="color:#a6e22e">data</span>: <span style="color:#66d9ef">Movie</span>[];
+  <span style="color:#a6e22e">loading</span>: <span style="color:#66d9ef">boolean</span>;
+  <span style="color:#a6e22e">error</span>: <span style="color:#66d9ef">string</span>;
+}</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Maintenant notre Reducer, en prenant soin de définir un State initial.</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">37
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// Initial state
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initialState</span>: <span style="color:#66d9ef">MoviesState</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> [],
+  <span style="color:#a6e22e">loading</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
+};
+ 
+<span style="color:#75715e">// REDUCER
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reducer</span>(
+  <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">initialState</span>,
+  <span style="color:#a6e22e">action</span>: <span style="color:#66d9ef">MovieActions.GetMovieAction</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GetMovieActionError</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GetMovieActionSuccess</span>
+)<span style="color:#f92672">:</span> <span style="color:#a6e22e">MoviesState</span> {
+  <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
+    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GET_MOVIES</span><span style="color:#f92672">:</span> {
+      <span style="color:#66d9ef">return</span> {
+        ...<span style="color:#a6e22e">state</span>,
+        <span style="color:#a6e22e">loading</span>: <span style="color:#66d9ef">true</span>
+      };
+    }
+    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GET_MOVIES_ERROR</span><span style="color:#f92672">:</span> {
+      <span style="color:#66d9ef">return</span> {
+        ...<span style="color:#a6e22e">state</span>,
+        <span style="color:#a6e22e">loading</span>: <span style="color:#66d9ef">false</span>,
+        <span style="color:#a6e22e">error</span>: <span style="color:#66d9ef">action.payload</span>
+      };
+    }
+    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GET_MOVIES_SUCCESS</span><span style="color:#f92672">:</span> {
+      <span style="color:#66d9ef">return</span> {
+        ...<span style="color:#a6e22e">state</span>,
+        <span style="color:#a6e22e">loading</span>: <span style="color:#66d9ef">false</span>,
+        <span style="color:#a6e22e">data</span>: <span style="color:#66d9ef">action.payload</span>
+      };
+    }
+  }
+ 
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+}</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Plusieurs points à noter là-dessus. La fonction reducer prend en paramètre un state (avec l&rsquo;initial state en propriété par défaut) et une action du type souhaité, on retrouve là notre caracteristique &ldquo;pure&rdquo;.</p>
+
+<p>A noter aussi que nous prenons le state initial par défaut et que le Reducer modifie uniquement les propriétés nécéssaires, en l&rsquo;occurence, lors de l&rsquo;événement &ldquo;GET_MOVIES&rdquo; je spécifie à mon state qu&rsquo;il est en chargement et donc le isLoading passe à true, lors d&rsquo;un success ou d&rsquo;un cas d&rsquo;erreur, j&rsquo;élimine cet etat de chargement et je nourris respectivement la data ou l&rsquo;erreur avec le payload.</p>
+
+<h2 id="définition-du-state">Définition du State</h2>
+
+<p>Il faut voir le State de notre application comme un arbre, il y aura differents niveaux et accesseurs suivant la donnée que l&rsquo;on souhaite acquérir.</p>
+
+<p>Dans l&rsquo;app module il va falloir rajouter 2 imports:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#a6e22e">StoreModule</span>.<span style="color:#a6e22e">forRoot</span>({}),
+<span style="color:#a6e22e">StoreModule</span>.<span style="color:#a6e22e">forFeature</span>(<span style="color:#e6db74">&#39;elements&#39;</span>, <span style="color:#a6e22e">reducers</span>),</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Le premier définit un tableau de Reducers initiaux et le suivant permet d&rsquo;importer des Reducers regroupés par &ldquo;features&rdquo; pour les modules lazy loadés. Dans l&rsquo;exemple, &lsquo;elements&rsquo; représente la clef de la feature, et le second paramètre est un objet qui représente les Reducers pour l&rsquo;ensemble de notre feature. Voilà comment je l&rsquo;ai défini :</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// State de notre feature
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ElementsState</span> {
+  <span style="color:#a6e22e">movies</span>: <span style="color:#66d9ef">MoviesState</span>;
+}
+ 
+<span style="color:#75715e">// Reducers pour notre state
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">reducers</span>: <span style="color:#66d9ef">ActionReducerMap</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ElementsState</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">movies</span>: <span style="color:#66d9ef">reducer</span>
+};</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Où cette fois-ci &ldquo;reducer&rdquo; correspond bien à notre fonction créée précédemment.</p>
+
+<h2 id="création-des-selectors">Création des Selectors</h2>
+
+<p>Pour pouvoir accèder à un élément de notre state, il faut créer des Selectors.
+Il y a 2 types de Selectors, les FeatureSelector et les simples Selector, vous l&rsquo;aurez compris, le FeatureSelector nous permet de récupérer au top-level le State d&rsquo;une feature et les autres, des grappes à l&rsquo;interieur de la feature, voici un exemple :</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ActionReducerMap</span>, <span style="color:#a6e22e">createFeatureSelector</span>, <span style="color:#a6e22e">createSelector</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@ngrx/store&#39;</span>;
+ 
+<span style="color:#75715e">// globalState
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getElementsState</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createFeatureSelector</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ElementsState</span><span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#39;elements&#39;</span>);
+ 
+<span style="color:#75715e">// moviesState
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getMoviesState</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createSelector</span>(<span style="color:#a6e22e">getElementsState</span>, (<span style="color:#a6e22e">state</span>: <span style="color:#66d9ef">ElementsState</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">movies</span>);
+ 
+<span style="color:#75715e">// pure datas
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getAllMovies</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createSelector</span>(<span style="color:#a6e22e">getMoviesState</span>, <span style="color:#a6e22e">getMovies</span>);</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Ok, jusqu&rsquo;ici on a déjà bien représenté le data flow de notre Store, nous pouvons dispatcher notre premiere action depuis un component.</p>
+
+<h2 id="appel-depuis-un-composant">Appel depuis un composant</h2>
+
+<p>Container component</p>
+
+<p>Pour bien distinguer la notion de container et presentational component, nous allons en créer un de chaque, voyons le container,
+côté Typescript :</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span>, <span style="color:#a6e22e">OnInit</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ElementsState</span>, <span style="color:#a6e22e">getAllMovies</span>, <span style="color:#a6e22e">getMoviesState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store/reducers/index.reducer&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Store</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@ngrx/store&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">getMovies</span>, <span style="color:#a6e22e">MoviesState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store/reducers/movies.reducer&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Observable</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;rxjs/Observable&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Movie</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./models/movie.model&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GetMovieAction</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store/actions/index.action&#39;</span>;
+ 
+<span style="color:#66d9ef">@Component</span>({
+  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app-root&#39;</span>,
+  <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./app.component.html&#39;</span>,
+  <span style="color:#a6e22e">styleUrls</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;./app.component.css&#39;</span>]
+})
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppComponent</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">OnInit</span> {
+ 
+  <span style="color:#a6e22e">movies$</span>: <span style="color:#66d9ef">Observable</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MoviesState</span><span style="color:#f92672">&gt;</span>;
+ 
+  <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">private</span> <span style="color:#a6e22e">store</span>: <span style="color:#66d9ef">Store</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ElementsState</span><span style="color:#f92672">&gt;</span>) {}
+ 
+  <span style="color:#a6e22e">ngOnInit() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">movies$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">select</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MoviesState</span><span style="color:#f92672">&gt;</span>(<span style="color:#a6e22e">getMoviesState</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">GetMovieAction</span>());
+  }
+}</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Rien d&rsquo;extraordinaire, on injecte notre store pour le type voulu, et on récupère un Observable de notre state grâce aux selectors ( que nous avons créés précédement ) avec la méthode .select. Il ne reste plus qu&rsquo;à dispatch une action, en l&rsquo;occurence de type GET_MOVIES.
+Pour rappel, notre observable movies$ sera donc résolu 2 fois car notre Reducer et notre middleware vont être notifiés de l&rsquo;action, et ce dernier renvoyant une action succeed ou error.</p>
+
+<p>La vue:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h2</span>&gt;There is {{(movies$|async).data.length}} movies&lt;/<span style="color:#f92672">h2</span>&gt;
+&lt;<span style="color:#f92672">span</span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">hidden</span><span style="color:#960050;background-color:#1e0010">]=&#34;!(</span><span style="color:#a6e22e">movies</span><span style="color:#960050;background-color:#1e0010">$|</span><span style="color:#a6e22e">async</span><span style="color:#960050;background-color:#1e0010">).</span><span style="color:#a6e22e">loading</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;Loading...&lt;/<span style="color:#f92672">span</span>&gt;
+&lt;<span style="color:#f92672">span</span>&gt;{{(movies$|async).error}}&lt;/<span style="color:#f92672">span</span>&gt;
+ 
+<span style="color:#75715e">&lt;!-- Presentational component --&gt;</span>
+&lt;<span style="color:#f92672">app-movies</span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">hidden</span><span style="color:#960050;background-color:#1e0010">]=&#34;(</span><span style="color:#a6e22e">movies</span><span style="color:#960050;background-color:#1e0010">$|</span><span style="color:#a6e22e">async</span><span style="color:#960050;background-color:#1e0010">).</span><span style="color:#a6e22e">loading</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">movies</span><span style="color:#960050;background-color:#1e0010">]=&#34;(</span><span style="color:#a6e22e">movies</span><span style="color:#960050;background-color:#1e0010">$</span> <span style="color:#960050;background-color:#1e0010">|</span><span style="color:#a6e22e">async</span><span style="color:#960050;background-color:#1e0010">).</span><span style="color:#a6e22e">data</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">app-movies</span>&gt;</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>⚐ A noter l&rsquo;utilisation du pipe &ldquo;async&rdquo;</p>
+
+<ul>
+<li>aucun soucis pour gérer une valeur par défaut en attendant la résolution</li>
+<li>on peut l&rsquo;utiliser plusieurs fois pour le même observable ( une seule souscription est faite)</li>
+<li>l&rsquo;Unsubscribe est géré tout seul comme un grand</li>
+<li>Utilisé dans un binding, il mettra bien à jour la référence à chaque résolution de l&rsquo;observable</li>
+<li>..</li>
+</ul>
+
+<p>Presentational Component</p>
+
+<p>Ici le composant Movies de présentation:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span>, <span style="color:#a6e22e">OnInit</span>, <span style="color:#a6e22e">Input</span>, <span style="color:#a6e22e">ChangeDetectionStrategy</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ElementsState</span>, <span style="color:#a6e22e">getAllMovies</span>, <span style="color:#a6e22e">getMoviesState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store/reducers/index.reducer&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Store</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@ngrx/store&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">getMovies</span>, <span style="color:#a6e22e">MoviesState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store/reducers/movies.reducer&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Observable</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;rxjs/Observable&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Movie</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./models/movie.model&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GetMovieAction</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store/actions/index.action&#39;</span>;
+ 
+<span style="color:#66d9ef">@Component</span>({
+  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app-movies&#39;</span>,
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`&lt;ul&gt;
+</span><span style="color:#e6db74">                &lt;li *ngFor=&#34;let movie of movies&#34;&gt;{{movie.title}}&lt;/li&gt;
+</span><span style="color:#e6db74">            &lt;/ul&gt;`</span>,
+  <span style="color:#a6e22e">changeDetection</span>: <span style="color:#66d9ef">ChangeDetectionStrategy.OnPush</span>
+ 
+})
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MoviesComponent</span> {
+ 
+  <span style="color:#66d9ef">@Input</span>()
+  <span style="color:#a6e22e">movies</span>: <span style="color:#66d9ef">Movie</span>[];
+ 
+  <span style="color:#66d9ef">constructor</span>() {
+  }
+}</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>⚐ A noter la changeDetectionStrategy d&rsquo;angular sur &ldquo;OnPush&rdquo;, en effet la détection de changement ne se fera uniquement sur modification de référence passée sur les @Input() du composant (ce qui vaut pour le binding d&rsquo;un observable via le pipe async comme on le fait plus haut) ou sur les event Handler</p>
+
+<p>⚐ Code complet (article parties 1 &amp; 2) disponible ici : <a href="https://github.com/Bubbuls/ngrx-demo">https://github.com/Bubbuls/ngrx-demo</a></p>
+
+<h1 id="voila">Voila</h1>
+
+<p>Jusqu&rsquo;ici le store est mis en place, nous sommes capables de dispatcher une action, et de récupérer un nouveau state en fonction, nous avons vu plusieurs points comme le pipe async pour résoudre les observables, la stratégie de détection OnPush pour rajouter un peu d&rsquo;immutabilité dans nos composants.</p>
+
+<p>Mais nous n&rsquo;avons pas de données, je vous invite à passer à la partie 2 de cet article qui montrera comment appeler un service Angular ou tout autre élément externe grâce aux side-effects (volontaires), ça se trouve ici : <a href="/">Librairies NGRX pour une application Angular réactive. Part <sup>2</sup>&frasl;<sub>3</sub> : ngrx/Effects</a></p>
+
+</div>
+            <div class="footer">
+                
+
+
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+      (function () {
+            
+            
+            
+            if (location.hostname === "localhost" || 
+            	location.hostname === "127.0.0.1" || 
+            	location.hostname === "") {
+                return;
+			}
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            var disqus_shortname = 'kalbrecht-blog';
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(
+                  dsq);
+      })();
+</script>
+
+<noscript>
+	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      
+
+            </div>
+        </div>
+        
+        
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-118690818-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+        
+    </body>
+</html>

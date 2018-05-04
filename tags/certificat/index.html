@@ -71,6 +71,7 @@
 	</ul>
 </div>
 
+			<p id="niconico"></p>
         <p>
 		<section class="row text-center">
 	
@@ -103,7 +104,20 @@
         </p>
 	</div>
 </div>
-
+<script>
+	var el = document.getElementById("niconico");
+	console.log("el",el);
+	var baseUri = "http://nicovideo.cdn.nimg.jp/web/img/base/head/icon/nico/";
+	var extension = ".gif";
+	var list = ["000","005","007","008","010","011","012","013","014","015","016","018","019","020","022","023","024","026","028","031","032","033","034","035","038","039","040","046","050","052","053","058","061","063","075","078","089","092","094","104","118","127","131","132","135"];
+	function getIndex(max) {
+		return Math.floor(Math.random() * Math.floor(max));
+	}
+	var index = getIndex(list.length-1);
+	var content = "<img style='display:inline' src='"+baseUri+list[index]+extension+"' />"
+	el.innerHTML = content;
+</script>
+<img src="">
         <div class="content container">
             <h1 class="title">Certificat</h1>
 <ul class="posts">
