@@ -6,7 +6,7 @@
     <description>Recent content in Webapp on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 11 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://bubbuls.github.io/tags/webapp/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Le State management pour les webapps avec Redux</title>
       <link>https://bubbuls.github.io/posts/le-state-management-pour-les-webapps-avec-redux/</link>
-      <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://bubbuls.github.io/posts/le-state-management-pour-les-webapps-avec-redux/</guid>
       <description>Introduction Problématique Dans une web app simple, par défaut on va permettre à nos composants de consommer de la donnée : un composant peut lire, créer ou éditer une donnée &amp;ldquo;A&amp;rdquo; , tandis qu&amp;rsquo;un autre peut lui aussi modifier cette donnée &amp;ldquo;A&amp;rdquo;, et qu&amp;rsquo;un troisième composant va pouvoir éditer une propriété de la donnée &amp;ldquo;A&amp;rdquo;. Il est facile d&amp;rsquo;avoir la référence d&amp;rsquo;un objet distribué à droite à gauche et de permettre un accès vers de multiples composants.</description>

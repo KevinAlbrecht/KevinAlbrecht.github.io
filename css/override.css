@@ -21,6 +21,10 @@ a{
   background-color: #0c250f;
 }
 
+.sidebar .sidebar-nav li {
+text-align: left;
+}
+
 a:hover, a:focus { /*from poole*/
     text-decoration: none;
 }
@@ -43,8 +47,9 @@ a:hover, a:focus { /*from poole*/
   text-align: left;
 }
 
-.tech-list li:before{
-content:"#";
+tech-list li{
+  text-indent: 10px;
+/*.content:"#";*/
 }
 
 .sidebar .container .lead {
