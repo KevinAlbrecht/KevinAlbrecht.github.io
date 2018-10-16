@@ -60,6 +60,10 @@ pre{
     font-weight: 300;
 }
 
+a{
+font-weight: 700;
+}
+
 .center
 {
     display: block;
