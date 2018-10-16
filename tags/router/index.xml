@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Router on Kevin ALBRECHT</title>
-    <link>https://bubbuls.github.io/tags/router/</link>
+    <link>https://KevinALBRECHT.github.io/tags/router/</link>
     <description>Recent content in Router on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Mon, 04 Jun 2018 07:00:00 +0200</lastBuildDate>
     
-	<atom:link href="https://bubbuls.github.io/tags/router/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://KevinALBRECHT.github.io/tags/router/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Librairies Ngrx Pour Une Application Angular Reactive Part 3 Ngrx router-store</title>
-      <link>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</link>
+      <link>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</link>
       <pubDate>Mon, 04 Jun 2018 07:00:00 +0200</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</guid>
       <description>Voici la derniere partie sur les librairies NGRX, si vous n&amp;rsquo;avez pas déjà vu les précédentes, ça commence là → :Librairies NGRX pour une application Angular réactive. Part 1&amp;frasl;3 : ngrx/store
 ngrx/router-store ngrx/router-store ? la librairie router-store est tout simplement un pont pour faire communiquer le router Angular à notre store, l&amp;rsquo;idée est de renforcer la notion de &amp;ldquo;single source of truth&amp;rdquo; du pattern Redux.
 Github → https://github.com/ngrx/platform/tree/master/docs/effects

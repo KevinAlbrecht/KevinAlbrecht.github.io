@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Google Map on Kevin ALBRECHT</title>
-    <link>https://bubbuls.github.io/tags/google-map/</link>
+    <link>https://KevinALBRECHT.github.io/tags/google-map/</link>
     <description>Recent content in Google Map on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Thu, 18 Feb 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://bubbuls.github.io/tags/google-map/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://KevinALBRECHT.github.io/tags/google-map/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova</title>
-      <link>https://bubbuls.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</link>
+      <link>https://KevinALBRECHT.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</guid>
       <description>Introduction Récemment nous avons dû afficher une GoogleMap dans une application Cordova.
 Lors de son initialisation, la librairie cherche à injecter dynamiquement des scripts nécessaires à son bon fonctionnement ce qui est, sur la plateforme Windows, interdit. Le seul moyen de le permettre est que la carte se retrouve sandboxée dans le composant ms-web-view.
 Nous avons donc des solutions différentes suivant la plateforme d’utilisation, c’est là que les “merges” de Cordova entrent en jeu, il va falloir une implémentation différente par plateforme sans faire faillir l&amp;rsquo;IntelliSense et la compilation TypeScript.</description>

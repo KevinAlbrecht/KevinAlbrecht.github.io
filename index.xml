@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kevin ALBRECHT</title>
-    <link>https://bubbuls.github.io/</link>
+    <link>https://KevinALBRECHT.github.io/</link>
     <description>Recent content on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Mon, 04 Jun 2018 07:00:00 +0200</lastBuildDate>
     
-	<atom:link href="https://bubbuls.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://KevinALBRECHT.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Librairies Ngrx Pour Une Application Angular Reactive Part 3 Ngrx router-store</title>
-      <link>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</link>
+      <link>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</link>
       <pubDate>Mon, 04 Jun 2018 07:00:00 +0200</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</guid>
       <description>Voici la derniere partie sur les librairies NGRX, si vous n&amp;rsquo;avez pas déjà vu les précédentes, ça commence là → :Librairies NGRX pour une application Angular réactive. Part 1&amp;frasl;3 : ngrx/store
 ngrx/router-store ngrx/router-store ? la librairie router-store est tout simplement un pont pour faire communiquer le router Angular à notre store, l&amp;rsquo;idée est de renforcer la notion de &amp;ldquo;single source of truth&amp;rdquo; du pattern Redux.
 Github → https://github.com/ngrx/platform/tree/master/docs/effects
@@ -25,49 +25,49 @@ Nous allons voir 3 points principaux, fonctionnements que nous rajoutons au proj
     
     <item>
       <title>Librairies Ngrx Pour Une Application Angular Reactive Part 2 Ngrx Effects</title>
-      <link>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/</link>
+      <link>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/</link>
       <pubDate>Mon, 12 Feb 2018 22:37:34 +0200</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/</guid>
       <description>Vous voici sur la partie 2 de cet article où nous allons implémenter un Effect. Si vous n&amp;rsquo;avez pas vu la première partie, c&amp;rsquo;est ici :Librairies NGRX pour une application Angular réactive. Part 1&amp;frasl;3 : ngrx/store
 ngrx/effects ngrx/effects ? Les reducers sont dits &amp;ldquo;purs&amp;rdquo; et ne doivent donc en aucun cas récupérer une donnée autre que leurs paramètres, nous allons donc rajouter un middleware pour volontairement introduire du &amp;ldquo;side effect&amp;rdquo; qui représentera nos intéractions serveur.</description>
     </item>
     
     <item>
       <title>Librairies Ngrx Pour Une Application Angular Reactive Part 1 Ngrx Store</title>
-      <link>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/</link>
+      <link>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/</link>
       <pubDate>Mon, 12 Feb 2018 14:20:40 +0200</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/</guid>
       <description>Mon article précédent traitait globalement de l&amp;rsquo;architecture proposée par Redux pour des web app dites &amp;ldquo;réactives&amp;rdquo;. Je vous recommande de le lire si vous n&amp;rsquo;êtes pas familier avec Redux : Le State management pour les webapps avec Redux.
 Maintenant, sur le même sujet, nous allons nous concentrer sur les applications Angular et nous allons voir des librairies de la team ngrx. Cet article est divisé en 3 parties :</description>
     </item>
     
     <item>
       <title>Le State management pour les webapps avec Redux</title>
-      <link>https://bubbuls.github.io/posts/le-state-management-pour-les-webapps-avec-redux/</link>
+      <link>https://KevinALBRECHT.github.io/posts/le-state-management-pour-les-webapps-avec-redux/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/le-state-management-pour-les-webapps-avec-redux/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/le-state-management-pour-les-webapps-avec-redux/</guid>
       <description>Introduction Problématique Dans une web app simple, par défaut on va permettre à nos composants de consommer de la donnée : un composant peut lire, créer ou éditer une donnée &amp;ldquo;A&amp;rdquo; , tandis qu&amp;rsquo;un autre peut lui aussi modifier cette donnée &amp;ldquo;A&amp;rdquo;, et qu&amp;rsquo;un troisième composant va pouvoir éditer une propriété de la donnée &amp;ldquo;A&amp;rdquo;. Il est facile d&amp;rsquo;avoir la référence d&amp;rsquo;un objet distribué à droite à gauche et de permettre un accès vers de multiples composants.</description>
     </item>
     
     <item>
       <title>IoT Hub ou Event Hub, Quels services pour la communication des données dans l’IoT ?</title>
-      <link>https://bubbuls.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/</link>
+      <link>https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/</link>
       <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/</guid>
       <description>Introduction Parmi les briques Azures, on trouve 2 éléments particulièrement intéressants pour la communication d&amp;rsquo;information dans le domaine de l&amp;rsquo;IoT, nous avons l&amp;rsquo; &amp;ldquo;Event Hub&amp;rdquo; et l&amp;rsquo; &amp;ldquo;IoT Hub&amp;rdquo;. Dans cet article nous allons comparer ces services afin de déduire les scénarios d&amp;rsquo;utilisation adéquats à chacun.
 Event Hub vs IoT Hub Différences techniques Globalement ces 2 services ont des attributs similaires, ils sont conçus pour travailler avec un débit élevé de données, une faible latence mais voyons ici un comparatif des différences techniques:</description>
     </item>
     
     <item>
       <title>Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova</title>
-      <link>https://bubbuls.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</link>
+      <link>https://KevinALBRECHT.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</guid>
       <description>Introduction Récemment nous avons dû afficher une GoogleMap dans une application Cordova.
 Lors de son initialisation, la librairie cherche à injecter dynamiquement des scripts nécessaires à son bon fonctionnement ce qui est, sur la plateforme Windows, interdit. Le seul moyen de le permettre est que la carte se retrouve sandboxée dans le composant ms-web-view.
 Nous avons donc des solutions différentes suivant la plateforme d’utilisation, c’est là que les “merges” de Cordova entrent en jeu, il va falloir une implémentation différente par plateforme sans faire faillir l&amp;rsquo;IntelliSense et la compilation TypeScript.</description>
@@ -75,10 +75,10 @@ Nous avons donc des solutions différentes suivant la plateforme d’utilisation
     
     <item>
       <title>Attendre que vos ressources dynamiques soient chargées grâce aux promises</title>
-      <link>https://bubbuls.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/</link>
+      <link>https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/</link>
       <pubDate>Tue, 16 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/</guid>
       <description>Dans une webApp, s’il est nécessaire de charger des scripts/ressources dynamiquement, il est alors important de pouvoir s’assurer du chargement complet de ceux-ci dans notre application avant de pouvoir exécuter du code lié à ces éléments.
 Pour reprendre l’exemple de mon article traitant des GoogleMap nous chargions des scripts dynamiquement, pour gérer le cas nous avons 2 étapes:
 Dans un premier temps nous allons disposer d’une méthode retournant une promise, qui va être, soit résolue directement, soit en stocker le deferred, en fonction d’une simple propriété isLoaded : boolean.</description>
@@ -86,10 +86,10 @@ Dans un premier temps nous allons disposer d’une méthode retournant une promi
     
     <item>
       <title>Utiliser un certificat d’entreprise pour un package Windows pour Cordova</title>
-      <link>https://bubbuls.github.io/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</link>
+      <link>https://KevinALBRECHT.github.io/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</guid>
       <description>En ce qui concerne les application pour la plateforme Windows, il peut arriver même lors de phases de recettes d’avoir à utiliser un certificat Entreprise, sauf que contrairement à un projet d’application Windows 8.1&amp;frasl;10, nous ne disposons pas de simple bouton pour importer un certificat.
 La tâche est très simple mais juste un peu plus longue que pour les applications traditionnelles, voilà les étapes de packaging:
 Première étape: Installer et ajouter le certificat En effet il est nécessaire d’installer le certificat, lorsque vous êtes sur les options d’installation, pensez à bien sélectionner l’utilisateur courant puis le magasin“Personnel” pour éviter toute erreur lors de la build, puis ajoutez le certificat dans le dossier de ressources native.</description>
@@ -97,10 +97,10 @@ Première étape: Installer et ajouter le certificat En effet il est nécessaire
     
     <item>
       <title>Utiliser Les Fonctionnalites Du Cache Html 5</title>
-      <link>https://bubbuls.github.io/posts/utiliser-les-fonctionnalites-du-cache-html-5/</link>
+      <link>https://KevinALBRECHT.github.io/posts/utiliser-les-fonctionnalites-du-cache-html-5/</link>
       <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://bubbuls.github.io/posts/utiliser-les-fonctionnalites-du-cache-html-5/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/utiliser-les-fonctionnalites-du-cache-html-5/</guid>
       <description>Depuis quelques années il devient de plus en plus important de pouvoir permettre à une web application de fonctionner de façon offline (notamment pour les Single Page Applications). Grace aux spécifications HTML5 de nombreux outils sont à notre disposition dans 2 catégories , le Storage et le Cache. Ici nous allons voir comment exploiter les fonctionnalités du Cache à bon escient.
 Comment fonctionne le cache HTML 5 ? Le cache HTML5 est une spécification qui apporte une logique unique aux navigateurs pour gérer les ressources (html, javascript, CSS, images …etc), il est compatible avec tous les navigateurs récents et à partir d&amp;rsquo;Internet Explorer 10.</description>
     </item>
