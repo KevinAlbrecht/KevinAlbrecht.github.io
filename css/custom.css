@@ -45,9 +45,12 @@ body
 
 
 .hljs {
-    white-space: pre;
-    
+    white-space: pre;    
     overflow-x: auto; /* no line wrapping */
+}
+
+pre{
+        white-space: pre;
 }
 
 .copyright, 

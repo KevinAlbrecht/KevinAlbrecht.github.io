@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr-fr" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+    
+    <title>Librairies Ngrx Pour Une Application Angular Reactive Part 3 Ngrx router-store &middot; Kevin ALBRECHT</title>
+    <meta content="Librairies Ngrx Pour Une Application Angular Reactive Part 3 Ngrx router-store - Kevin ALBRECHT" property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://bubbuls.github.io/css/print.css" media="print">
+    <link rel="stylesheet" href="https://bubbuls.github.io/css/poole.css">
+    <link rel="stylesheet" href="https://bubbuls.github.io/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://bubbuls.github.io/css/custom.css">
+        <link rel="stylesheet" href="https://bubbuls.github.io/css/override.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center"> 
+			<a href="https://bubbuls.github.io/"><h1 class="brand">Kevin ALBRECHT</h1></a>
+			<p class="lead">
+				<span>
+					 Développeur web 
+				</span>
+				<span class="lead-second">
+					<a href='https://infinitesquare.com/' target="_blank">
+					@Infinitesquare
+				</a>
+				</span>
+			</p>
+			<ul class="tech-list">
+				
+				
+				<li>
+					<i class='fab fa-angular'></i>
+					Angular
+				</li>
+				
+				<li>
+					<i class='fab fa-windows'></i>
+					Asp.net / Core
+				</li>
+				
+				<li>
+					<i class='fa fa-mobile-alt'></i>
+					Cordova
+				</li>
+				
+			</ul>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/"><i class='fa fa-list-ul'></i> <span>Blog Posts</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+			<p id="niconico"></p>
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/kalbrecht_fr"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/Bubbuls"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/albrechtkevin/"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:kevin-albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+	</div>
+	<div>
+	</div>
+	<div class="sidebar-sticky sidebar-bottom">
+		<p class="copyright">&copy; 2018 .
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+</div>
+<script>
+	var el = document.getElementById("niconico");
+	console.log("el",el);
+	var baseUri = "http://nicovideo.cdn.nimg.jp/web/img/base/head/icon/nico/";
+	var extension = ".gif";
+	var list = ["000","005","007","008","010","011","012","013","014","015","016","018","019","020","022","023","024","026","028","031","032","033","034","035","038","039","040","046","050","052","053","058","061","063","075","078","089","092","094","104","118","127","131","132","135"];
+	function getIndex(max) {
+		return Math.floor(Math.random() * Math.floor(max));
+	}
+	var index = getIndex(list.length-1);
+	var content = "<img style='display:inline' src='"+baseUri+list[index]+extension+"' />"
+	el.innerHTML = content;
+</script>
+<img src="">
+        <div class="content container">
+            
+    <div class="post">
+  <h1>Librairies Ngrx Pour Une Application Angular Reactive Part 3 Ngrx router-store</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> 04/06/2018
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/angular">angular</a> | 
+        
+            <a class="meta" href="/tags/ngrx">ngrx</a> | 
+        
+            <a class="meta" href="/tags/redux">redux</a> | 
+        
+            <a class="meta" href="/tags/router">router</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 7 min de lecture 
+      </span>  
+  </div>    
+  
+  
+
+<p>Voici la derniere partie sur les librairies NGRX, si vous n&rsquo;avez pas déjà vu les précédentes, ça commence là → :<a href="/">Librairies NGRX pour une application Angular réactive. Part <sup>1</sup>&frasl;<sub>3</sub> : ngrx/store</a></p>
+
+<h1 id="ngrx-router-store">ngrx/router-store</h1>
+
+<p><img src="/ngrx.png" alt="ngrx" /></p>
+
+<h2 id="ngrx-router-store-1">ngrx/router-store ?</h2>
+
+<p>la librairie router-store est tout simplement un pont pour faire communiquer le router Angular à notre store, l&rsquo;idée est de renforcer la notion de &ldquo;single source of truth&rdquo; du pattern Redux.</p>
+
+<p>Github →  <a href="https://github.com/ngrx/platform/tree/master/docs/effects">https://github.com/ngrx/platform/tree/master/docs/effects</a></p>
+
+<p>Nous allons voir 3 points principaux, fonctionnements que nous rajoutons au projet initial:</p>
+
+<ul>
+<li>Rajouter les éléments de la route courante à notre state</li>
+<li>Récupérer automatiquement une donnée en fonction de la route</li>
+<li>La navigation via un Effect ?</li>
+</ul>
+
+<h2 id="intégrer-le-routesnapshot-à-notre-state">Intégrer le routeSnapshot à notre state</h2>
+
+<p>Comme pour notre state créé dans la partie <sup>1</sup>&frasl;<sub>3</sub> nous allons rajouter un enregistrement dans le module de notre application (facultatif si l&rsquo;on choisit de tout enregistrer en tant que root)</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// Register au module
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">StoreModule</span>.<span style="color:#a6e22e">forFeature</span>(<span style="color:#e6db74">&#39;router&#39;</span>, <span style="color:#a6e22e">routerReducers</span>),
+ 
+<span style="color:#75715e">// ****
+</span><span style="color:#75715e"></span> 
+<span style="color:#75715e">// ActionReducerMap
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routerReducers</span>: <span style="color:#66d9ef">ActionReducerMap</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RouterState</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">routerReducer</span>: <span style="color:#66d9ef">routerReducer</span>
+};
+ 
+<span style="color:#75715e">// Le state
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">RouterState</span> {
+    <span style="color:#a6e22e">routerReducer</span>: <span style="color:#66d9ef">RouterReducerState</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MyRouterStateSnapshot</span><span style="color:#f92672">&gt;</span>;
+}
+ 
+<span style="color:#75715e">// Le modele représentant le snapshot
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">MyRouterStateSnapshot</span> {
+    <span style="color:#a6e22e">url</span>: <span style="color:#66d9ef">string</span>;
+    <span style="color:#a6e22e">params</span>: <span style="color:#66d9ef">Params</span>;
+    <span style="color:#a6e22e">queryParams</span>: <span style="color:#66d9ef">Params</span>;
+}
+ 
+<span style="color:#75715e">// Enfin le selecteur 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getRouterState</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createFeatureSelector</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RouterReducerState</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MyRouterStateSnapshot</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#e6db74">&#39;router&#39;</span>);</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Voila le résultat brut retourné à une url donnée :</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript">{ <span style="color:#e6db74">&#34;routerReducerState&#34;</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#34;state&#34;</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#34;url&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/category/1&#34;</span>, <span style="color:#e6db74">&#34;params&#34;</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#34;categoryId&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1&#34;</span> }, <span style="color:#e6db74">&#34;queryParams&#34;</span><span style="color:#f92672">:</span> {} }, <span style="color:#e6db74">&#34;navigationId&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> } }</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Enfin nous pouvons créer un sélecteur qui va agréger les states de films et de la route tel que :</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getSelectedMoviesState</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createSelector</span>(<span style="color:#a6e22e">getElementsState</span>, <span style="color:#a6e22e">getRouterState</span>, (<span style="color:#a6e22e">state</span>: <span style="color:#66d9ef">ElementsState</span>, <span style="color:#a6e22e">router</span>: <span style="color:#66d9ef">any</span>) <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">router</span>: <span style="color:#66d9ef">router</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">routerReducer</span> <span style="color:#f92672">:</span> {}, <span style="color:#a6e22e">movies</span>: <span style="color:#66d9ef">state.movies</span> };
+});</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Et voila, pour la suite nous n&rsquo;utiliserons pas ce dernier sélecteur, mais plutôt le premier afin de récupérer uniquement les données de la route avant de récupérer la donnée finale dans le composant.</p>
+
+<h2 id="récupérer-une-donnée-automatiquement-en-fonction-de-la-route">Récupérer une donnée automatiquement en fonction de la route</h2>
+
+<p>Nous savons requêter les données du routeur, mais il serait dommage, si l&rsquo;on veut récupérer de la data à afficher en fonction de la route de devoir d&rsquo;abord requêter l&rsquo;un, puis l&rsquo;autre.</p>
+
+<p>Voilà le postulat actuel : nous sommes dans une application présentant une liste de catégories de films, si l’on clique sur une catégorie nous naviguons sur une route avec l’identifiant de la catégorie voulue et ainsi nous voulons récupérer tous les films appartenant à cette catégorie.</p>
+
+<p>Voici notre route:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript">{ <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;category/:categoryId&#39;</span>, <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">MoviesComponent</span>, <span style="color:#a6e22e">pathMatch</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;full&#39;</span> },</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Contrairement au précédent exemple nous allons récupérer le state de la route directement dans l’Effect associé à la récupération de movies et ainsi permettre de récupérer uniquement les movies par l’Id de catégorie.</p>
+
+<p>Pour cela je vous invite à créer :
+ - 2 actions :
+  - GetSelectedMovies
+  - GetSelectedMoviesSuccess
+ - 2 cas dans le réducer de categories, un pour chaque action.</p>
+
+<p>Tout cela nous l’avons vu dans les articles précédents.</p>
+
+<p>Ce qui nous interesse ici c’est l’Effect, en effet on va voir comment utiliser un selector pour récupérer le snapshot de la route.</p>
+
+<p>Voila comment procéder :</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">@Effect</span>()
+    <span style="color:#a6e22e">selectedMovies$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actions$</span>.<span style="color:#a6e22e">ofType</span>(<span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GET_SELECTED_MOVIE</span>)
+        .<span style="color:#a6e22e">pipe</span>(
+            <span style="color:#a6e22e">withLatestFrom</span>(
+
+            <span style="color:#75715e">// recuperation de la route
+</span><span style="color:#75715e"></span> 
+            ),
+            <span style="color:#a6e22e">switchMap</span>((<span style="color:#a6e22e">newPayload</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">action</span>: <span style="color:#66d9ef">Action</span>, <span style="color:#a6e22e">payload</span>: <span style="color:#66d9ef">number</span> }) <span style="color:#f92672">=&gt;</span> {
+
+            <span style="color:#75715e">// appel au service pour récupérer les films
+</span><span style="color:#75715e"></span>
+            }));</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Nous avons notre Effect, avant d’utiliser l’opérateur switchMap pour pouvoir retourner notre nouvel observable, nous utilisons l’opérator withLatestFrom, cet opérateur prend plusieurs paramètres, en l’occurrence , un ou plusieurs élément asynchrones ( observable , promise … ) et enfin une fonction retournant un nouvel observable, l’opérateur sert à déclencher cette fonction à chaque nouvelle version des observable donnés.</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">@Effect</span>()
+    <span style="color:#a6e22e">selectedMovies$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actions$</span>.<span style="color:#a6e22e">ofType</span>(<span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GET_SELECTED_MOVIE</span>)
+        .<span style="color:#a6e22e">pipe</span>(
+            <span style="color:#a6e22e">withLatestFrom</span>(
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">select</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>(<span style="color:#a6e22e">getRouter</span>),
+                (<span style="color:#a6e22e">action</span>, <span style="color:#a6e22e">payload</span>) <span style="color:#f92672">=&gt;</span> {
+                    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>[<span style="color:#e6db74">&#39;categoryId&#39;</span>]) {
+                        <span style="color:#66d9ef">throw</span> { <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;no category Id given&#39;</span> };
+                    }
+                    <span style="color:#66d9ef">return</span> {
+                        <span style="color:#a6e22e">action</span>: <span style="color:#66d9ef">action</span>,
+                        <span style="color:#a6e22e">payload</span>: <span style="color:#66d9ef">payload.state.params</span>[<span style="color:#e6db74">&#39;categoryId&#39;</span>]
+                    };
+                }),
+            <span style="color:#a6e22e">switchMap</span>((<span style="color:#a6e22e">newPayload</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">action</span>: <span style="color:#66d9ef">Action</span>, <span style="color:#a6e22e">payload</span>: <span style="color:#66d9ef">number</span> }) <span style="color:#f92672">=&gt;</span> {
+ 
+                <span style="color:#75715e">//
+</span><span style="color:#75715e"></span>  
+            }));</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Le premier paramètre de notre opérateur sera un sélecteur pour notre snapshot de route, le second est notre méthode pour extraire le paramètre voulu et l’on retourne un nouvel objet contenant l’action reçue initialement ainsi qu’un payload contenant notre paramètre de route.</p>
+
+<p>Ceci sera reçu par la suite dans le switchmap qui, comme vu dans l’article sur les effect, nous permet de retourner le nouvel observable avec notre donnée.</p>
+
+<p>Effect final</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">@Effect</span>()
+    <span style="color:#a6e22e">selectedMovies$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actions$</span>.<span style="color:#a6e22e">ofType</span>(<span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GET_SELECTED_MOVIE</span>)
+        .<span style="color:#a6e22e">pipe</span>(
+            <span style="color:#a6e22e">withLatestFrom</span>(
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">select</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>(<span style="color:#a6e22e">getRouter</span>),
+                (<span style="color:#a6e22e">action</span>, <span style="color:#a6e22e">payload</span>) <span style="color:#f92672">=&gt;</span> {
+                    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>[<span style="color:#e6db74">&#39;categoryId&#39;</span>]) {
+                        <span style="color:#66d9ef">throw</span> { <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;no category Id given&#39;</span> };
+                    }
+                    <span style="color:#66d9ef">return</span> {
+                        <span style="color:#a6e22e">action</span>: <span style="color:#66d9ef">action</span>,
+                        <span style="color:#a6e22e">payload</span>: <span style="color:#66d9ef">payload.state.params</span>[<span style="color:#e6db74">&#39;categoryId&#39;</span>]
+                    };
+                }),
+            <span style="color:#a6e22e">switchMap</span>((<span style="color:#a6e22e">newPayload</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">action</span>: <span style="color:#66d9ef">Action</span>, <span style="color:#a6e22e">payload</span>: <span style="color:#66d9ef">number</span> }) <span style="color:#f92672">=&gt;</span> {
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">movieService</span>.<span style="color:#a6e22e">getMoviesByCategoryId</span>(<span style="color:#a6e22e">newPayload</span>.<span style="color:#a6e22e">payload</span>)
+                    .<span style="color:#a6e22e">pipe</span>(
+                        <span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">movies</span> <span style="color:#f92672">=&gt;</span> {
+                            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GetSelectedMovieActionSuccess</span>(<span style="color:#a6e22e">movies</span>);
+                        }),
+                        <span style="color:#a6e22e">catchError</span>(<span style="color:#a6e22e">err</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">of</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MovieActions</span>.<span style="color:#a6e22e">GetMovieActionError</span>(<span style="color:#a6e22e">err</span>)))
+                    );
+            }));</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Voilà plus besoin de récupérer le paramètre depuis le composant, il ne reste plus qu’à utiliser le sélecteur et dispatch l’action dans notre composant comme suit :</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">selectedMoviesState$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">select</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>(<span style="color:#a6e22e">getSelectedMovies</span>);
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">GetSelectedMovieAction</span>());</code></pre></td></tr></table>
+</div>
+</div>
+
+<h2 id="naviguer-depuis-un-effect">Naviguer depuis un effect</h2>
+
+<p>La navigation aussi peut être ajoutée dans le cycle.</p>
+
+<p>Pour cela nous pouvons créer des effects &amp; actions pour les types de navigation :</p>
+
+<ul>
+<li><strong>Go</strong> pour la navigation vers une route</li>
+<li><strong>Foreward</strong> pour une navigation « suivant » navigateur</li>
+<li><strong>Back</strong> pour une navigation « retour » navigateur</li>
+</ul>
+
+<p><strong>⚐ Pas besoin de réducers ici car nous ne touchons pas au state.</strong></p>
+
+<p>Voilà un exemple tel qu’implémenté dans l’application angular ngrx vitrine <a href="https://github.com/ngrx/example-app">https://github.com/ngrx/example-app</a></p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Go</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">Action</span> {
+    <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">GO</span>;
+ 
+    <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">path</span>: <span style="color:#66d9ef">any</span>[];
+        <span style="color:#a6e22e">query?</span>: <span style="color:#66d9ef">object</span>;
+        <span style="color:#a6e22e">extras?</span>: <span style="color:#66d9ef">NavigationExtras</span>;
+    }) { }
+}
+ 
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Back</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">Action</span> {
+    <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">BACK</span>;
+}</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Et les effects:</p>
+
+<p><strong>⚐ Attention à préciser dans le décorator « dispatch :false » car effectuant une navigation nous ne renvoyons pas de nouvelle action à traiter.</strong></p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">@Effect</span>({ <span style="color:#a6e22e">dispatch</span>: <span style="color:#66d9ef">false</span> })
+    <span style="color:#a6e22e">CustomGoNavigation$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actions$</span>.<span style="color:#a6e22e">ofType</span>(<span style="color:#a6e22e">GO</span>)
+        .<span style="color:#a6e22e">pipe</span>(
+            <span style="color:#a6e22e">tap</span>((<span style="color:#a6e22e">action</span>: <span style="color:#66d9ef">Go</span>) <span style="color:#f92672">=&gt;</span> {
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">navigate</span>(<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">path</span>, { <span style="color:#a6e22e">queryParams</span>: <span style="color:#66d9ef">action.payload.query</span>, ...<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">extras</span> });
+            }));
+ 
+    <span style="color:#66d9ef">@Effect</span>({ <span style="color:#a6e22e">dispatch</span>: <span style="color:#66d9ef">false</span> })
+    <span style="color:#a6e22e">CustomBackNavigation$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actions$</span>.<span style="color:#a6e22e">ofType</span>(<span style="color:#a6e22e">BACK</span>)
+        .<span style="color:#a6e22e">pipe</span>(
+            <span style="color:#a6e22e">tap</span>((<span style="color:#a6e22e">action</span>: <span style="color:#66d9ef">Back</span>) <span style="color:#f92672">=&gt;</span> {
+                <span style="color:#75715e">// or you can wrap the window reference and inject as angularJS does it natively with $window.
+</span><span style="color:#75715e"></span>                window.<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">back</span>();
+            }));
+ 
+    <span style="color:#66d9ef">@Effect</span>({ <span style="color:#a6e22e">dispatch</span>: <span style="color:#66d9ef">false</span> })
+    <span style="color:#a6e22e">CustomForwardNavigation$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actions$</span>.<span style="color:#a6e22e">ofType</span>(<span style="color:#a6e22e">FORWARD</span>)
+        .<span style="color:#a6e22e">pipe</span>(
+            <span style="color:#a6e22e">tap</span>((<span style="color:#a6e22e">action</span>) <span style="color:#f92672">=&gt;</span> {
+                window.<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">forward</span>();
+            }));</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Maintenant nous pouvons considérer lors d’une erreur de récupération de donnée dans un effect précédent, de retourner une action de type « Go » pour naviguer sur une page d’erreur par exemple.</p>
+
+<p>Dans les faits, la navigation directement depuis un composant , en passant par le Router.navigate() n’est pas vraiment anti-pattern par ailleurs, à la version 2 du framework , le package contenait des actions natives « Go ,Back ,Foreward… »  qui se sont avérées plutôt négligeables et retirées du package à la version 4.x .</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>C&rsquo;est la fin de cette première série d&rsquo;articles sur la librairie Ngrx, nous avons vu les briques principales et suffisantes pour débuter une application complète.</p>
+
+<p>Pour finir, quelques mots de &ldquo;pour et contres&rdquo; , d&rsquo;abord nous sommes encouragés à scinder nos composants en container/presenter afin d&rsquo;utiliser la stratégie OnPush, donc de gagner en principe de &ldquo;Single responsibility&rdquo; des composants, et éviter certaines erreur/compléxités dues au fait de faire transiter une donnée à travers plusieurs couches avant d&rsquo;être consommées.
+Aussi une des premières questions à se poser est si l&rsquo;on va réutiliser une donnée de multiples fois à travers l&rsquo;application, plus on nécessite une donné plus elle sera transportée au travers des composants et dans une architecture classique il peut en résulter une source de complexité, Redux se propose comme étant une solution à ce problème.</p>
+
+<p>En points négatifs on peut citer en premier lieu la charge de code nécessaire pour un simple fonctionnement, récupérer une simple donnée demande de créer de nombreuses classes et fonctions nécessaire au dataflow, donc évidement pour une application de petite envergure c&rsquo;est à réfléchir.
+Ensuite cela reste une dépendance externe à gérer et toute la conception d&rsquo;une application à comprendre et apprivoiser. Cependant la plupart des notions (redéfinir la responsabilité des composants, stratégie OnPush, ) sont ici encouragées ce qui veut dire qu&rsquo;on peut bien entendu les appliquer sans utiliser Redux.</p>
+
+<p>Maintenant à vous de voir, que la Réactivité soit avec vous.</p>
+
+</div>
+
+            <div class="footer">
+                
+
+
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+      (function () {
+            
+            
+            
+            if (location.hostname === "localhost" || 
+            	location.hostname === "127.0.0.1" || 
+            	location.hostname === "") {
+                return;
+			}
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            var disqus_shortname = 'kalbrecht-blog';
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(
+                  dsq);
+      })();
+</script>
+
+<noscript>
+	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      
+
+            </div>
+        </div>
+        
+        
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-118690818-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+        
+    </body>
+</html>
