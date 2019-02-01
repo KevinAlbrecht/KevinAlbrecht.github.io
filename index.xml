@@ -6,10 +6,20 @@
     <description>Recent content on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 04 Jun 2018 07:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 01 Feb 2019 14:49:00 +0200</lastBuildDate>
     
 	<atom:link href="https://KevinALBRECHT.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Comprendre les structural directives d&#39;angular</title>
+      <link>https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-d-angular/</link>
+      <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-d-angular/</guid>
+      <description>J&amp;rsquo;ai beaucoup utilisé les directives structurelles sans avoir pris le temps de me demander comment ça fonctionnait, cependant la &amp;ldquo;mycrosyntaxe&amp;rdquo; d&amp;rsquo;angular paraissait suffisamment puissante pour y faire un détour, initialement je me suis souvent demander ce qui était possible de faire grace aux templates angular, alors voyons comment cela fonctionne.
+La surface de l&amp;rsquo;iceberg Les directives structurelles d&amp;rsquo;angular sont les directives qui manipulent les éléments du dom, reconnaissables du fait qu&amp;rsquo;elles commencent toutes par un asterisk, comme par exemple *ngIf et *ngFor.</description>
+    </item>
     
     <item>
       <title>Librairies Ngrx Pour Une Application Angular Reactive Part 3 Ngrx router-store</title>
