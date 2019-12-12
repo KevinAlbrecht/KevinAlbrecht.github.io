@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Kevin ALBRECHT</title>
@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Angular</title>
+      <title>angular</title>
       <link>https://KevinALBRECHT.github.io/tags/angular/</link>
       <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
       
@@ -21,16 +21,70 @@
     </item>
     
     <item>
-      <title>Angularjs</title>
-      <link>https://KevinALBRECHT.github.io/tags/angularjs/</link>
-      <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
+      <title>directive</title>
+      <link>https://KevinALBRECHT.github.io/tags/directive/</link>
+      <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
       
-      <guid>https://KevinALBRECHT.github.io/tags/angularjs/</guid>
+      <guid>https://KevinALBRECHT.github.io/tags/directive/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Azure</title>
+      <title>microsyntaxe</title>
+      <link>https://KevinALBRECHT.github.io/tags/microsyntaxe/</link>
+      <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/microsyntaxe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ng-template</title>
+      <link>https://KevinALBRECHT.github.io/tags/ng-template/</link>
+      <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/ng-template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ngrx</title>
+      <link>https://KevinALBRECHT.github.io/tags/ngrx/</link>
+      <pubDate>Mon, 04 Jun 2018 07:00:00 +0200</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/ngrx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redux</title>
+      <link>https://KevinALBRECHT.github.io/tags/redux/</link>
+      <pubDate>Mon, 04 Jun 2018 07:00:00 +0200</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/redux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>router</title>
+      <link>https://KevinALBRECHT.github.io/tags/router/</link>
+      <pubDate>Mon, 04 Jun 2018 07:00:00 +0200</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/router/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webapp</title>
+      <link>https://KevinALBRECHT.github.io/tags/webapp/</link>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/webapp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure</title>
       <link>https://KevinALBRECHT.github.io/tags/azure/</link>
       <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
@@ -39,20 +93,38 @@
     </item>
     
     <item>
-      <title>Cache</title>
-      <link>https://KevinALBRECHT.github.io/tags/cache/</link>
-      <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
+      <title>event hub</title>
+      <link>https://KevinALBRECHT.github.io/tags/event-hub/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://KevinALBRECHT.github.io/tags/cache/</guid>
+      <guid>https://KevinALBRECHT.github.io/tags/event-hub/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Certificat</title>
-      <link>https://KevinALBRECHT.github.io/tags/certificat/</link>
-      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      <title>iot</title>
+      <link>https://KevinALBRECHT.github.io/tags/iot/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://KevinALBRECHT.github.io/tags/certificat/</guid>
+      <guid>https://KevinALBRECHT.github.io/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot hub</title>
+      <link>https://KevinALBRECHT.github.io/tags/iot-hub/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/iot-hub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>angularjs</title>
+      <link>https://KevinALBRECHT.github.io/tags/angularjs/</link>
+      <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/angularjs/</guid>
       <description></description>
     </item>
     
@@ -66,25 +138,7 @@
     </item>
     
     <item>
-      <title>Directive</title>
-      <link>https://KevinALBRECHT.github.io/tags/directive/</link>
-      <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/directive/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Event Hub</title>
-      <link>https://KevinALBRECHT.github.io/tags/event-hub/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/event-hub/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google Map</title>
+      <title>google map</title>
       <link>https://KevinALBRECHT.github.io/tags/google-map/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
@@ -93,110 +147,11 @@
     </item>
     
     <item>
-      <title>Html5</title>
-      <link>https://KevinALBRECHT.github.io/tags/html5/</link>
-      <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/html5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Iot</title>
-      <link>https://KevinALBRECHT.github.io/tags/iot/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/iot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Iot Hub</title>
-      <link>https://KevinALBRECHT.github.io/tags/iot-hub/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/iot-hub/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Manifest</title>
-      <link>https://KevinALBRECHT.github.io/tags/manifest/</link>
-      <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/manifest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microsyntaxe</title>
-      <link>https://KevinALBRECHT.github.io/tags/microsyntaxe/</link>
-      <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/microsyntaxe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ng Template</title>
-      <link>https://KevinALBRECHT.github.io/tags/ng-template/</link>
-      <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/ng-template/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ngrx</title>
-      <link>https://KevinALBRECHT.github.io/tags/ngrx/</link>
-      <pubDate>Mon, 04 Jun 2018 07:00:00 +0200</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/ngrx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Promises</title>
-      <link>https://KevinALBRECHT.github.io/tags/promises/</link>
-      <pubDate>Tue, 16 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/promises/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Redux</title>
-      <link>https://KevinALBRECHT.github.io/tags/redux/</link>
-      <pubDate>Mon, 04 Jun 2018 07:00:00 +0200</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/redux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Router</title>
-      <link>https://KevinALBRECHT.github.io/tags/router/</link>
-      <pubDate>Mon, 04 Jun 2018 07:00:00 +0200</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/router/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Typescript</title>
+      <title>typescript</title>
       <link>https://KevinALBRECHT.github.io/tags/typescript/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>https://KevinALBRECHT.github.io/tags/typescript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Webapp</title>
-      <link>https://KevinALBRECHT.github.io/tags/webapp/</link>
-      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://KevinALBRECHT.github.io/tags/webapp/</guid>
       <description></description>
     </item>
     
@@ -206,6 +161,51 @@
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>https://KevinALBRECHT.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>promises</title>
+      <link>https://KevinALBRECHT.github.io/tags/promises/</link>
+      <pubDate>Tue, 16 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/promises/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Certificat</title>
+      <link>https://KevinALBRECHT.github.io/tags/certificat/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/certificat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cache</title>
+      <link>https://KevinALBRECHT.github.io/tags/cache/</link>
+      <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML5</title>
+      <link>https://KevinALBRECHT.github.io/tags/html5/</link>
+      <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/html5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>manifest</title>
+      <link>https://KevinALBRECHT.github.io/tags/manifest/</link>
+      <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/tags/manifest/</guid>
       <description></description>
     </item>
     

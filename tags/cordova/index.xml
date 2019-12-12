@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cordova on Kevin ALBRECHT</title>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova</title>
-      <link>https://KevinALBRECHT.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</link>
+      <link>https://KevinALBRECHT.github.io/posts/impl%C3%A9menter-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://KevinALBRECHT.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/impl%C3%A9menter-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</guid>
       <description>Introduction Récemment nous avons dû afficher une GoogleMap dans une application Cordova.
 Lors de son initialisation, la librairie cherche à injecter dynamiquement des scripts nécessaires à son bon fonctionnement ce qui est, sur la plateforme Windows, interdit. Le seul moyen de le permettre est que la carte se retrouve sandboxée dans le composant ms-web-view.
 Nous avons donc des solutions différentes suivant la plateforme d’utilisation, c’est là que les “merges” de Cordova entrent en jeu, il va falloir une implémentation différente par plateforme sans faire faillir l&amp;rsquo;IntelliSense et la compilation TypeScript.</description>
@@ -24,10 +24,10 @@ Nous avons donc des solutions différentes suivant la plateforme d’utilisation
     
     <item>
       <title>Utiliser un certificat d’entreprise pour un package Windows pour Cordova</title>
-      <link>https://KevinALBRECHT.github.io/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</link>
+      <link>https://KevinALBRECHT.github.io/posts/utiliser-un-certificat-dentreprise-pour-un-package-windows-pour-cordova/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://KevinALBRECHT.github.io/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/utiliser-un-certificat-dentreprise-pour-un-package-windows-pour-cordova/</guid>
       <description>En ce qui concerne les application pour la plateforme Windows, il peut arriver même lors de phases de recettes d’avoir à utiliser un certificat Entreprise, sauf que contrairement à un projet d’application Windows 8.1&amp;frasl;10, nous ne disposons pas de simple bouton pour importer un certificat.
 La tâche est très simple mais juste un peu plus longue que pour les applications traditionnelles, voilà les étapes de packaging:
 Première étape: Installer et ajouter le certificat En effet il est nécessaire d’installer le certificat, lorsque vous êtes sur les options d’installation, pensez à bien sélectionner l’utilisateur courant puis le magasin“Personnel” pour éviter toute erreur lors de la build, puis ajoutez le certificat dans le dossier de ressources native.</description>

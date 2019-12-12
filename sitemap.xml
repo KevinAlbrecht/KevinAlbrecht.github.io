@@ -1,14 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-d-angular/</loc>
+    <loc>https://KevinALBRECHT.github.io/tags/angular/</loc>
+    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-dangular/</loc>
+    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/directive/</loc>
+    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/</loc>
+    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/microsyntaxe/</loc>
+    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/ng-template/</loc>
+    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/posts/</loc>
+    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/</loc>
     <lastmod>2019-02-01T14:49:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/</loc>
+    <lastmod>2018-06-04T07:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/ngrx/</loc>
+    <lastmod>2018-06-04T07:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/redux/</loc>
+    <lastmod>2018-06-04T07:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/router/</loc>
     <lastmod>2018-06-04T07:00:00+02:00</lastmod>
   </url>
   
@@ -28,23 +78,98 @@
   </url>
   
   <url>
-    <loc>https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/</loc>
+    <loc>https://KevinALBRECHT.github.io/tags/webapp/</loc>
+    <lastmod>2017-12-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/azure/</loc>
     <lastmod>2016-03-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://KevinALBRECHT.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</loc>
+    <loc>https://KevinALBRECHT.github.io/tags/event-hub/</loc>
+    <lastmod>2016-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/iot/</loc>
+    <lastmod>2016-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/iot-hub/</loc>
+    <lastmod>2016-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donn%C3%A9es-dans-liot/</loc>
+    <lastmod>2016-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/angularjs/</loc>
     <lastmod>2016-02-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/</loc>
+    <loc>https://KevinALBRECHT.github.io/tags/cordova/</loc>
+    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/google-map/</loc>
+    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/posts/impl%C3%A9menter-une-googlemap-avec-angularjs-et-typescript-dans-cordova/</loc>
+    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/typescript/</loc>
+    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/windows/</loc>
+    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-charg%C3%A9es-gr%C3%A2ce-aux-promises/</loc>
     <lastmod>2016-02-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://KevinALBRECHT.github.io/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/</loc>
+    <loc>https://KevinALBRECHT.github.io/tags/promises/</loc>
+    <lastmod>2016-02-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/certificat/</loc>
     <lastmod>2016-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/posts/utiliser-un-certificat-dentreprise-pour-un-package-windows-pour-cordova/</loc>
+    <lastmod>2016-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/cache/</loc>
+    <lastmod>2015-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/html5/</loc>
+    <lastmod>2015-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://KevinALBRECHT.github.io/tags/manifest/</loc>
+    <lastmod>2015-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -53,158 +178,7 @@
   </url>
   
   <url>
-    <loc>https://KevinALBRECHT.github.io/tags/angular/</loc>
-    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/angularjs/</loc>
-    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/azure/</loc>
-    <lastmod>2016-03-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/cache/</loc>
-    <lastmod>2015-03-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://KevinALBRECHT.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/certificat/</loc>
-    <lastmod>2016-02-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/cordova/</loc>
-    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/directive/</loc>
-    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/event-hub/</loc>
-    <lastmod>2016-03-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/google-map/</loc>
-    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/html5/</loc>
-    <lastmod>2015-03-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/iot/</loc>
-    <lastmod>2016-03-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/iot-hub/</loc>
-    <lastmod>2016-03-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/</loc>
-    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/manifest/</loc>
-    <lastmod>2015-03-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/microsyntaxe/</loc>
-    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/ng-template/</loc>
-    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/ngrx/</loc>
-    <lastmod>2018-06-04T07:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/posts/</loc>
-    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/promises/</loc>
-    <lastmod>2016-02-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/redux/</loc>
-    <lastmod>2018-06-04T07:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/router/</loc>
-    <lastmod>2018-06-04T07:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/</loc>
-    <lastmod>2019-02-01T14:49:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/typescript/</loc>
-    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/webapp/</loc>
-    <lastmod>2017-12-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://KevinALBRECHT.github.io/tags/windows/</loc>
-    <lastmod>2016-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

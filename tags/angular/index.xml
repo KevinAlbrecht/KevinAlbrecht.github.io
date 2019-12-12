@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Angular on Kevin ALBRECHT</title>
+    <title>angular on Kevin ALBRECHT</title>
     <link>https://KevinALBRECHT.github.io/tags/angular/</link>
-    <description>Recent content in Angular on Kevin ALBRECHT</description>
+    <description>Recent content in angular on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Fri, 01 Feb 2019 14:49:00 +0200</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Comprendre les structural directives d&#39;angular</title>
-      <link>https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-d-angular/</link>
+      <link>https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-dangular/</link>
       <pubDate>Fri, 01 Feb 2019 14:49:00 +0200</pubDate>
       
-      <guid>https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-d-angular/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-dangular/</guid>
       <description>J&amp;rsquo;ai beaucoup utilisé les directives structurelles sans avoir pris le temps de me demander comment ça fonctionnait, cependant la &amp;ldquo;mycrosyntaxe&amp;rdquo; d&amp;rsquo;angular paraissait suffisamment puissante pour y faire un détour, initialement je me suis souvent demander ce qui était possible de faire grace aux templates angular, alors voyons comment cela fonctionne.
 La surface de l&amp;rsquo;iceberg Les directives structurelles d&amp;rsquo;angular sont les directives qui manipulent les éléments du dom, reconnaissables du fait qu&amp;rsquo;elles commencent toutes par un asterisk, comme par exemple *ngIf et *ngFor.</description>
     </item>

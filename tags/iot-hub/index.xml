@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Iot Hub on Kevin ALBRECHT</title>
+    <title>iot hub on Kevin ALBRECHT</title>
     <link>https://KevinALBRECHT.github.io/tags/iot-hub/</link>
-    <description>Recent content in Iot Hub on Kevin ALBRECHT</description>
+    <description>Recent content in iot hub on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Tue, 01 Mar 2016 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>IoT Hub ou Event Hub, Quels services pour la communication des données dans l’IoT ?</title>
-      <link>https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/</link>
+      <link>https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donn%C3%A9es-dans-liot/</link>
       <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donn%C3%A9es-dans-liot/</guid>
       <description>Introduction Parmi les briques Azures, on trouve 2 éléments particulièrement intéressants pour la communication d&amp;rsquo;information dans le domaine de l&amp;rsquo;IoT, nous avons l&amp;rsquo; &amp;ldquo;Event Hub&amp;rdquo; et l&amp;rsquo; &amp;ldquo;IoT Hub&amp;rdquo;. Dans cet article nous allons comparer ces services afin de déduire les scénarios d&amp;rsquo;utilisation adéquats à chacun.
 Event Hub vs IoT Hub Différences techniques Globalement ces 2 services ont des attributs similaires, ils sont conçus pour travailler avec un débit élevé de données, une faible latence mais voyons ici un comparatif des différences techniques:</description>
     </item>

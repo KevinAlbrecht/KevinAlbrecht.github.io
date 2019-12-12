@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Promises on Kevin ALBRECHT</title>
+    <title>promises on Kevin ALBRECHT</title>
     <link>https://KevinALBRECHT.github.io/tags/promises/</link>
-    <description>Recent content in Promises on Kevin ALBRECHT</description>
+    <description>Recent content in promises on Kevin ALBRECHT</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Tue, 16 Feb 2016 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Attendre que vos ressources dynamiques soient chargées grâce aux promises</title>
-      <link>https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/</link>
+      <link>https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-charg%C3%A9es-gr%C3%A2ce-aux-promises/</link>
       <pubDate>Tue, 16 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/</guid>
+      <guid>https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-charg%C3%A9es-gr%C3%A2ce-aux-promises/</guid>
       <description>Dans une webApp, s’il est nécessaire de charger des scripts/ressources dynamiquement, il est alors important de pouvoir s’assurer du chargement complet de ceux-ci dans notre application avant de pouvoir exécuter du code lié à ces éléments.
 Pour reprendre l’exemple de mon article traitant des GoogleMap nous chargions des scripts dynamiquement, pour gérer le cas nous avons 2 étapes:
 Dans un premier temps nous allons disposer d’une méthode retournant une promise, qui va être, soit résolue directement, soit en stocker le deferred, en fonction d’une simple propriété isLoaded : boolean.</description>

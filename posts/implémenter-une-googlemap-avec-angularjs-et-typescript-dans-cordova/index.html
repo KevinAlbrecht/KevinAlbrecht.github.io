@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr-fr" class="wf-firasans-n4-active wf-active">
-	<head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
+
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Enable responsiveness on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     
     
-    <meta name="generator" content="Hugo 0.40.2" />
+    <meta name="generator" content="Hugo 0.59.0" />
     
     <title>Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova &middot; Kevin ALBRECHT</title>
     <meta content="Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova - Kevin ALBRECHT" property="og:title">
@@ -35,58 +36,44 @@
     <link rel="shortcut icon" href="/favicon.png">
     
 
-	</head>
-    <body>
-        <div class="sidebar">
-	<div class="container text-center sidebar-sticky">
-		<div class="sidebar-about text-center">
-			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center"> 
-			<a href="https://KevinALBRECHT.github.io/"><h1 class="brand">Kevin ALBRECHT</h1></a>
+</head>
+
+<body>
+	<div class="sidebar">
+	<div class="container sidebar-sticky">
+		<div class="sidebar-about">
+			<a href="https://KevinALBRECHT.github.io/">
+				<h1 class="brand">Kevin ALBRECHT</h1>
+			</a>
+			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center">
+			
 			<p class="lead">
 				<span>
-					 Développeur web 
+					 Développeur Fullstack 
 				</span>
 				<span class="lead-second">
 					<a href='https://infinitesquare.com/' target="_blank">
-					@Infinitesquare
-				</a>
+						@Infinitesquare
+					</a>
 				</span>
 			</p>
-			<ul class="tech-list">
-				
-				
-				<li>
-					<i class='fab fa-angular'></i>
-					Angular
-				</li>
-				
-				<li>
-					<i class='fab fa-windows'></i>
-					Asp.net / Core
-				</li>
-				
-				<li>
-					<i class='fa fa-mobile-alt'></i>
-					Cordova
-				</li>
-				
-			</ul>
 		</div>
 		
 <div>
 	<ul class="sidebar-nav">
 		
 		
-				<li>
-					<a href="/"><i class='fa fa-list-ul'></i> <span>Blog Posts</span></a>
-				</li>
+		<li>
+			<a href="/"><i class='fa fa-list-ul'></i> <span>Blog Posts</span></a>
+		</li>
+		<li>
+			<a href="/a-propos"><i class='fa fa-user'></i> <span>A Propos</span></a>
+		</li>
 		</li>
 	</ul>
 </div>
-
-			<p id="niconico"></p>
-        <p>
-		<section class="row text-center">
+			<section class="row social text-center">
+	<p id="niconico"></p>
 	
 	<a href="https://twitter.com/kalbrecht_fr"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
@@ -103,71 +90,78 @@
 	
 	
 	
-	&nbsp;<a href="mailto:kevin-albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	&nbsp;<a href="mailto:kevin.albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
 	
 </section>
-
-        </p>
-	</div>
-	<div>
 	</div>
 	<div class="sidebar-sticky sidebar-bottom">
-		<p class="copyright">&copy; 2019 .
-        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
-        </p>
+		<p class="copyright">&copy; 2019
+			.
+			<a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br />Built with <a
+				href="https://gohugo.io/">Hugo</a> &amp; <a
+				href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+		</p>
 	</div>
 </div>
 <script>
 	var el = document.getElementById("niconico");
-	console.log("el",el);
+	console.log("el", el);
 	var baseUri = "http://nicovideo.cdn.nimg.jp/web/img/base/head/icon/nico/";
 	var extension = ".gif";
 	var list = ["000","005","007","008","010","011","012","013","014","015","016","018","019","020","022","023","024","026","028","031","032","033","034","035","038","039","040","046","050","052","053","058","061","063","075","078","089","092","094","104","118","127","131","132","135"];
 	function getIndex(max) {
 		return Math.floor(Math.random() * Math.floor(max));
 	}
-	var index = getIndex(list.length-1);
-	var content = "<img style='display:inline' src='"+baseUri+list[index]+extension+"' />"
+	var index = getIndex(list.length - 1);
+	var content = "<img style='display:inline' src='" + baseUri + list[index] + extension + "' />"
 	el.innerHTML = content;
 </script>
 <img src="">
-        <div class="content container">
-            
-    <div class="post">
-  <h1>Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova</h1>
-  
-  <div class="col-sm-12 col-md-12">
-    <span class="text-left post-date meta">
-            
-       
-        <i class="fas fa-calendar-alt"></i> 18/02/2016
-      
-      
-      
-      
-        
-        
-            <br/>
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/angularjs">angularjs</a> | 
-        
-            <a class="meta" href="/tags/cordova">cordova</a> | 
-        
-            <a class="meta" href="/tags/google-map">google map</a> | 
-        
-            <a class="meta" href="/tags/typescript">typescript</a> | 
-        
-            <a class="meta" href="/tags/windows">windows</a>
-        
-      
-      
-      <br/>
-      <i class="fas fa-clock"></i> 8 min de lecture 
-      </span>  
-  </div>    
-  
-  
+	<div class="content container">
+		<div class="post">
+	<h1>Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova</h1>
+	
+	<div class="col-sm-12 col-md-12">
+		<span class="text-left post-date meta">
+			
+			
+			<i class="fas fa-calendar-alt"></i> 18/02/2016
+			
+			
+			
+			
+			
+			
+			<br />
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta"
+				href="/tags/angularjs">angularjs</a> |
+			
+			
+			<a class="meta"
+				href="/tags/cordova">cordova</a> |
+			
+			
+			<a class="meta"
+				href="/tags/google-map">google map</a> |
+			
+			
+			<a class="meta"
+				href="/tags/typescript">typescript</a> |
+			
+			
+			<a class="meta"
+				href="/tags/windows">windows</a>
+			
+			
+			
+			<br />
+			<i class="fas fa-clock"></i> 8 min de lecture
+		</span>
+	</div>
+	
+	
 
 <h1 id="introduction">Introduction</h1>
 
@@ -360,41 +354,39 @@ Mais à noter que le template de la directive n’est pas le même sur toutes le
 <p>Nous devons définir :</p>
 
 <ul>
-<li>le script google à injecter, qui se trouve directement dans le constructeur de notre classe</li>
-</ul>
+<li><p>le script google à injecter, qui se trouve directement dans le constructeur de notre classe</p>
 
 <pre><code>constructor(
-    private $q: ng.IQService,
-    private $window: ng.IWindowService,
-    private mapSupervisorService: MapSupervisorService) {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;callback=&lt;strong&gt;googleMapLoaded'&lt;/strong&gt;;
-    document.body.appendChild(script);
+private $q: ng.IQService,
+private $window: ng.IWindowService,
+private mapSupervisorService: MapSupervisorService) {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places&amp;callback=&lt;strong&gt;googleMapLoaded'&lt;/strong&gt;;
+document.body.appendChild(script);
  
-    […]
-</code></pre>
+[…]
+</code></pre></li>
+</ul>
 
 <p>Ici “googleMapLoaded” est une callback appelée lorsque toute l’API de google est bien chargée.</p>
 
 <ul>
-<li>Un getter du template du DOM pour la directive</li>
-</ul>
+<li><p>Un getter du template du DOM pour la directive</p>
 
 <pre><code>getDirectiveTemplate(): string {
-    return '&lt;div class=&quot;map&quot;&gt; &lt;/div&gt;'
+return '&lt;div class=&quot;map&quot;&gt; &lt;/div&gt;'
 }
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>une méthode de configuration qui permettra au mapSupervisorService de lancer l’initialisation de la carte. exemple :</li>
-</ul>
+<li><p>une méthode de configuration qui permettra au mapSupervisorService de lancer l’initialisation de la carte. exemple :</p>
 
 <pre><code>configure(element: string, mapConfiguration) {
-    this.loadGoogleMap().then(()=&gt;
-    this.mapSupervisorService.initMap(domElement, mapConfiguration));
+this.loadGoogleMap().then(()=&gt;
+this.mapSupervisorService.initMap(domElement, mapConfiguration));
 }
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>à noter que “loadGoogleMap()” est une méthode pour nous assurer que les script soient bien chargés avant d’exécuter le code.</p>
 
@@ -414,45 +406,44 @@ Mais à noter que le template de la directive n’est pas le même sur toutes le
 <p>Nous pouvons maintenant nous occuper de la méthode configure , en effet celle-ci va prendre en charge le chargement et la configuration de l’iframe. va se découper en 2 actions:</p>
 
 <ul>
-<li>l’insertion de la vue dans l’iframe</li>
-</ul>
+<li><p>l’insertion de la vue dans l’iframe</p>
 
 <pre><code>var domElement = document.getElementById(element);
 this.webview = &lt;MSHTMLWebViewElement&gt;domElement;
 this.webview.src = &quot;ms-appx-web:///www/views/_iframeMaster.html&quot;;
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>l’abonnement aux évènements de l’iframe :
+<li><p>l’abonnement aux évènements de l’iframe :</p>
 
 <ul>
 <li>MSWebViewScriptNotify qui est l’évènement par défaut d’une notification venant de l’iframe.</li>
-<li>MSWebViewNavigationCompleted qui permet de savoir quand l’iframe est chargé.</li>
-</ul></li>
-</ul>
+
+<li><p>MSWebViewNavigationCompleted qui permet de savoir quand l’iframe est chargé.</p>
 
 <pre><code>this.webview.addEventListener(&quot;MSWebViewScriptNotify&quot;, (evt: any) =&gt; {
-    var event: Cartographie.INotification = JSON.parse(evt.value)
-    if (event.notificationType === Cartographie.NotificationType.Loaded) {
-        this.iframeCompletelyLoaded();
-    }
+var event: Cartographie.INotification = JSON.parse(evt.value)
+if (event.notificationType === Cartographie.NotificationType.Loaded) {
+this.iframeCompletelyLoaded();
+}
 });
  
 this.webview.addEventListener(&quot;MSWebViewNavigationCompleted&quot;, () =&gt; {
-    var asyncOp = this.webview.invokeScriptAsync(
-        &quot;eval&quot;,
-        this.prepareMsWebview());
+var asyncOp = this.webview.invokeScriptAsync(
+&quot;eval&quot;,
+this.prepareMsWebview());
  
-    asyncOp.oncomplete = (success) =&gt; {
-        //Pas utile à exploiter
-        //nous attendrons que la webview nous notifie
-    }
-    asyncOp.onerror = (err) =&gt; {
-        //Alerter d'une erreur
-    };
-    asyncOp.start();
+asyncOp.oncomplete = (success) =&gt; {
+//Pas utile à exploiter
+//nous attendrons que la webview nous notifie
+}
+asyncOp.onerror = (err) =&gt; {
+//Alerter d'une erreur
+};
+asyncOp.start();
 });
-</code></pre>
+</code></pre></li>
+</ul></li>
+</ul>
 
 <p>Voilà pour la méthode configure, mais regardons de plus près l’initialisation des scripts GoogleMap, à exécuter cette fois-ci dans l’iframe grâce à “prepareMsWebview”</p>
 
@@ -553,9 +544,9 @@ document.body.appendChild(script);
 <p>Et voilà. L’article est quelque peu compliqué mais comporte plusieurs points importants dans l’utilisation des fichiers “merges” de cordova , et vous donne les cartes en main pour pouvoir communiquer avec les iframes.</p>
 
 </div>
+		<div class="footer">
+			
 
-            <div class="footer">
-                
 
 
         <h2>Comments</h2>
@@ -587,16 +578,21 @@ document.body.appendChild(script);
 
       
 
-            </div>
-        </div>
-        
-        
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-118690818-1', 'auto');
-ga('send', 'pageview');
+		</div>
+	</div>
+	
+	
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-118690818-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-        
-    </body>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
 </html>

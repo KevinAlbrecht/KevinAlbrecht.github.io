@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr-fr" class="wf-firasans-n4-active wf-active">
-	<head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
+
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Enable responsiveness on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     
     
-    <meta name="generator" content="Hugo 0.40.2" />
+    <meta name="generator" content="Hugo 0.59.0" />
     <title>Kevin ALBRECHT</title>
     <meta content="Kevin ALBRECHT" property="og:title">
     <meta content="" property="og:description">
@@ -36,58 +37,44 @@
     <link href="https://KevinALBRECHT.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Kevin ALBRECHT" />
     <link href="https://KevinALBRECHT.github.io/index.xml" rel="feed" type="application/rss+xml" title="Kevin ALBRECHT" />
 
-	</head>
-    <body>
-        <div class="sidebar">
-	<div class="container text-center sidebar-sticky">
-		<div class="sidebar-about text-center">
-			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center"> 
-			<a href="https://KevinALBRECHT.github.io/"><h1 class="brand">Kevin ALBRECHT</h1></a>
+</head>
+
+<body>
+	<div class="sidebar">
+	<div class="container sidebar-sticky">
+		<div class="sidebar-about">
+			<a href="https://KevinALBRECHT.github.io/">
+				<h1 class="brand">Kevin ALBRECHT</h1>
+			</a>
+			 <img src="/author.jpg" alt="Author Image" class="img-circle headshot center">
+			
 			<p class="lead">
 				<span>
-					 Développeur web 
+					 Développeur Fullstack 
 				</span>
 				<span class="lead-second">
 					<a href='https://infinitesquare.com/' target="_blank">
-					@Infinitesquare
-				</a>
+						@Infinitesquare
+					</a>
 				</span>
 			</p>
-			<ul class="tech-list">
-				
-				
-				<li>
-					<i class='fab fa-angular'></i>
-					Angular
-				</li>
-				
-				<li>
-					<i class='fab fa-windows'></i>
-					Asp.net / Core
-				</li>
-				
-				<li>
-					<i class='fa fa-mobile-alt'></i>
-					Cordova
-				</li>
-				
-			</ul>
 		</div>
 		
 <div>
 	<ul class="sidebar-nav">
 		
 		
-				<li>
-					<a href="/"><i class='fa fa-list-ul'></i> <span>Blog Posts</span></a>
-				</li>
+		<li>
+			<a href="/"><i class='fa fa-list-ul'></i> <span>Blog Posts</span></a>
+		</li>
+		<li>
+			<a href="/a-propos"><i class='fa fa-user'></i> <span>A Propos</span></a>
+		</li>
 		</li>
 	</ul>
 </div>
-
-			<p id="niconico"></p>
-        <p>
-		<section class="row text-center">
+			<section class="row social text-center">
+	<p id="niconico"></p>
 	
 	<a href="https://twitter.com/kalbrecht_fr"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
@@ -104,323 +91,403 @@
 	
 	
 	
-	&nbsp;<a href="mailto:kevin-albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	&nbsp;<a href="mailto:kevin.albrecht@outlook.fr"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
 	
 </section>
-
-        </p>
-	</div>
-	<div>
 	</div>
 	<div class="sidebar-sticky sidebar-bottom">
-		<p class="copyright">&copy; 2019 .
-        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
-        </p>
+		<p class="copyright">&copy; 2019
+			.
+			<a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br />Built with <a
+				href="https://gohugo.io/">Hugo</a> &amp; <a
+				href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+		</p>
 	</div>
 </div>
 <script>
 	var el = document.getElementById("niconico");
-	console.log("el",el);
+	console.log("el", el);
 	var baseUri = "http://nicovideo.cdn.nimg.jp/web/img/base/head/icon/nico/";
 	var extension = ".gif";
 	var list = ["000","005","007","008","010","011","012","013","014","015","016","018","019","020","022","023","024","026","028","031","032","033","034","035","038","039","040","046","050","052","053","058","061","063","075","078","089","092","094","104","118","127","131","132","135"];
 	function getIndex(max) {
 		return Math.floor(Math.random() * Math.floor(max));
 	}
-	var index = getIndex(list.length-1);
-	var content = "<img style='display:inline' src='"+baseUri+list[index]+extension+"' />"
+	var index = getIndex(list.length - 1);
+	var content = "<img style='display:inline' src='" + baseUri + list[index] + extension + "' />"
 	el.innerHTML = content;
 </script>
 <img src="">
-        <div class="content container">
-            <div class="posts">
-  
-    
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-d-angular/">Comprendre les structural directives d&#39;angular</a></h2>
-        <span class="post-date">01/02/2019
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/angular">angular</a>  | 
-            
-            <a class="meta" href="/tags/directive">directive</a>  | 
-            
-            <a class="meta" href="/tags/microsyntaxe">microsyntaxe</a>  | 
-            
-            <a class="meta" href="/tags/ng-template">ng-template</a> 
-            
-          
-          
-          
-        </span>
-        J&rsquo;ai beaucoup utilisé les directives structurelles sans avoir pris le temps de me demander comment ça fonctionnait, cependant la &ldquo;mycrosyntaxe&rdquo; d&rsquo;angular paraissait suffisamment puissante pour y faire un détour, initialement je me suis souvent demander ce qui était possible de faire grace aux templates angular, alors voyons comment cela fonctionne.
+	<div class="content container">
+		<div class="posts">
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/comprendre-les-structural-directives-dangular/">Comprendre les structural directives d&#39;angular</a></h2>
+		<span class="post-date">01/02/2019
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/angular">angular</a>
+			 | 
+			
+			<a class="meta" href="/tags/directive">directive</a>
+			 | 
+			
+			<a class="meta" href="/tags/microsyntaxe">microsyntaxe</a>
+			 | 
+			
+			<a class="meta" href="/tags/ng-template">ng-template</a>
+			
+			
+			
+			
+			
+		</span>
+		J&rsquo;ai beaucoup utilisé les directives structurelles sans avoir pris le temps de me demander comment ça fonctionnait, cependant la &ldquo;mycrosyntaxe&rdquo; d&rsquo;angular paraissait suffisamment puissante pour y faire un détour, initialement je me suis souvent demander ce qui était possible de faire grace aux templates angular, alors voyons comment cela fonctionne.
 La surface de l&rsquo;iceberg Les directives structurelles d&rsquo;angular sont les directives qui manipulent les éléments du dom, reconnaissables du fait qu&rsquo;elles commencent toutes par un asterisk, comme par exemple *ngIf et *ngFor.
-        …
-        <div class="read-more-link">
-            <a href="/posts/comprendre-les-structural-directives-d-angular/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/">Librairies Ngrx Pour Une Application Angular Reactive Part 3 Ngrx router-store</a></h2>
-        <span class="post-date">04/06/2018
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/angular">angular</a>  | 
-            
-            <a class="meta" href="/tags/ngrx">ngrx</a>  | 
-            
-            <a class="meta" href="/tags/redux">redux</a>  | 
-            
-            <a class="meta" href="/tags/router">router</a> 
-            
-          
-          
-          
-        </span>
-        Voici la derniere partie sur les librairies NGRX, si vous n&rsquo;avez pas déjà vu les précédentes, ça commence là → :Librairies NGRX pour une application Angular réactive. Part 1&frasl;3 : ngrx/store
+		…
+		<div class="read-more-link">
+			<a href="/posts/comprendre-les-structural-directives-dangular/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/">Librairies Ngrx Pour Une Application Angular Reactive Part 3 Ngrx router-store</a></h2>
+		<span class="post-date">04/06/2018
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/angular">angular</a>
+			 | 
+			
+			<a class="meta" href="/tags/ngrx">ngrx</a>
+			 | 
+			
+			<a class="meta" href="/tags/redux">redux</a>
+			 | 
+			
+			<a class="meta" href="/tags/router">router</a>
+			
+			
+			
+			
+			
+		</span>
+		Voici la derniere partie sur les librairies NGRX, si vous n&rsquo;avez pas déjà vu les précédentes, ça commence là → :Librairies NGRX pour une application Angular réactive. Part 1&frasl;3 : ngrx/store
 ngrx/router-store ngrx/router-store ? la librairie router-store est tout simplement un pont pour faire communiquer le router Angular à notre store, l&rsquo;idée est de renforcer la notion de &ldquo;single source of truth&rdquo; du pattern Redux.
 Github → https://github.com/ngrx/platform/tree/master/docs/effects
 Nous allons voir 3 points principaux, fonctionnements que nous rajoutons au projet initial:
-        …
-        <div class="read-more-link">
-            <a href="/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/">Librairies Ngrx Pour Une Application Angular Reactive Part 2 Ngrx Effects</a></h2>
-        <span class="post-date">12/02/2018
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/angular">angular</a>  | 
-            
-            <a class="meta" href="/tags/ngrx">ngrx</a>  | 
-            
-            <a class="meta" href="/tags/redux">redux</a> 
-            
-          
-          
-          
-        </span>
-        Vous voici sur la partie 2 de cet article où nous allons implémenter un Effect. Si vous n&rsquo;avez pas vu la première partie, c&rsquo;est ici :Librairies NGRX pour une application Angular réactive. Part 1&frasl;3 : ngrx/store
+		…
+		<div class="read-more-link">
+			<a href="/posts/librairies-ngrx-pour-une-application-angular-reactive-part-3-ngrx-router-store/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/">Librairies Ngrx Pour Une Application Angular Reactive Part 2 Ngrx Effects</a></h2>
+		<span class="post-date">12/02/2018
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/angular">angular</a>
+			 | 
+			
+			<a class="meta" href="/tags/ngrx">ngrx</a>
+			 | 
+			
+			<a class="meta" href="/tags/redux">redux</a>
+			
+			
+			
+			
+			
+		</span>
+		Vous voici sur la partie 2 de cet article où nous allons implémenter un Effect. Si vous n&rsquo;avez pas vu la première partie, c&rsquo;est ici :Librairies NGRX pour une application Angular réactive. Part 1&frasl;3 : ngrx/store
 ngrx/effects ngrx/effects ? Les reducers sont dits &ldquo;purs&rdquo; et ne doivent donc en aucun cas récupérer une donnée autre que leurs paramètres, nous allons donc rajouter un middleware pour volontairement introduire du &ldquo;side effect&rdquo; qui représentera nos intéractions serveur.
-        …
-        <div class="read-more-link">
-            <a href="/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/">Librairies Ngrx Pour Une Application Angular Reactive Part 1 Ngrx Store</a></h2>
-        <span class="post-date">12/02/2018
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/angular">angular</a>  | 
-            
-            <a class="meta" href="/tags/ngrx">ngrx</a>  | 
-            
-            <a class="meta" href="/tags/redux">redux</a> 
-            
-          
-          
-          
-        </span>
-        Mon article précédent traitait globalement de l&rsquo;architecture proposée par Redux pour des web app dites &ldquo;réactives&rdquo;. Je vous recommande de le lire si vous n&rsquo;êtes pas familier avec Redux : Le State management pour les webapps avec Redux.
+		…
+		<div class="read-more-link">
+			<a href="/posts/librairies-ngrx-pour-une-application-angular-reactive-part-2-ngrx-effects/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/">Librairies Ngrx Pour Une Application Angular Reactive Part 1 Ngrx Store</a></h2>
+		<span class="post-date">12/02/2018
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/angular">angular</a>
+			 | 
+			
+			<a class="meta" href="/tags/ngrx">ngrx</a>
+			 | 
+			
+			<a class="meta" href="/tags/redux">redux</a>
+			
+			
+			
+			
+			
+		</span>
+		Mon article précédent traitait globalement de l&rsquo;architecture proposée par Redux pour des web app dites &ldquo;réactives&rdquo;. Je vous recommande de le lire si vous n&rsquo;êtes pas familier avec Redux : Le State management pour les webapps avec Redux.
 Maintenant, sur le même sujet, nous allons nous concentrer sur les applications Angular et nous allons voir des librairies de la team ngrx. Cet article est divisé en 3 parties :
-        …
-        <div class="read-more-link">
-            <a href="/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/le-state-management-pour-les-webapps-avec-redux/">Le State management pour les webapps avec Redux</a></h2>
-        <span class="post-date">11/12/2017
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/redux">redux</a>  | 
-            
-            <a class="meta" href="/tags/webapp">webapp</a> 
-            
-          
-          
-          
-        </span>
-        Introduction Problématique Dans une web app simple, par défaut on va permettre à nos composants de consommer de la donnée : un composant peut lire, créer ou éditer une donnée &ldquo;A&rdquo; , tandis qu&rsquo;un autre peut lui aussi modifier cette donnée &ldquo;A&rdquo;, et qu&rsquo;un troisième composant va pouvoir éditer une propriété de la donnée &ldquo;A&rdquo;. Il est facile d&rsquo;avoir la référence d&rsquo;un objet distribué à droite à gauche et de permettre un accès vers de multiples composants.
-        …
-        <div class="read-more-link">
-            <a href="/posts/le-state-management-pour-les-webapps-avec-redux/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/">IoT Hub ou Event Hub, Quels services pour la communication des données dans l’IoT ?</a></h2>
-        <span class="post-date">01/03/2016
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/azure">azure</a>  | 
-            
-            <a class="meta" href="/tags/event-hub">event hub</a>  | 
-            
-            <a class="meta" href="/tags/iot">iot</a>  | 
-            
-            <a class="meta" href="/tags/iot-hub">iot hub</a> 
-            
-          
-          
-          
-        </span>
-        Introduction Parmi les briques Azures, on trouve 2 éléments particulièrement intéressants pour la communication d&rsquo;information dans le domaine de l&rsquo;IoT, nous avons l&rsquo; &ldquo;Event Hub&rdquo; et l&rsquo; &ldquo;IoT Hub&rdquo;. Dans cet article nous allons comparer ces services afin de déduire les scénarios d&rsquo;utilisation adéquats à chacun.
+		…
+		<div class="read-more-link">
+			<a href="/posts/librairies-ngrx-pour-une-application-angular-reactive-part-1-ngrx-store/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/le-state-management-pour-les-webapps-avec-redux/">Le State management pour les webapps avec Redux</a></h2>
+		<span class="post-date">11/12/2017
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/redux">redux</a>
+			 | 
+			
+			<a class="meta" href="/tags/webapp">webapp</a>
+			
+			
+			
+			
+			
+		</span>
+		Introduction Problématique Dans une web app simple, par défaut on va permettre à nos composants de consommer de la donnée : un composant peut lire, créer ou éditer une donnée &ldquo;A&rdquo; , tandis qu&rsquo;un autre peut lui aussi modifier cette donnée &ldquo;A&rdquo;, et qu&rsquo;un troisième composant va pouvoir éditer une propriété de la donnée &ldquo;A&rdquo;. Il est facile d&rsquo;avoir la référence d&rsquo;un objet distribué à droite à gauche et de permettre un accès vers de multiples composants.
+		…
+		<div class="read-more-link">
+			<a href="/posts/le-state-management-pour-les-webapps-avec-redux/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donn%C3%A9es-dans-liot/">IoT Hub ou Event Hub, Quels services pour la communication des données dans l’IoT ?</a></h2>
+		<span class="post-date">01/03/2016
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/azure">azure</a>
+			 | 
+			
+			<a class="meta" href="/tags/event-hub">event hub</a>
+			 | 
+			
+			<a class="meta" href="/tags/iot">iot</a>
+			 | 
+			
+			<a class="meta" href="/tags/iot-hub">iot hub</a>
+			
+			
+			
+			
+			
+		</span>
+		Introduction Parmi les briques Azures, on trouve 2 éléments particulièrement intéressants pour la communication d&rsquo;information dans le domaine de l&rsquo;IoT, nous avons l&rsquo; &ldquo;Event Hub&rdquo; et l&rsquo; &ldquo;IoT Hub&rdquo;. Dans cet article nous allons comparer ces services afin de déduire les scénarios d&rsquo;utilisation adéquats à chacun.
 Event Hub vs IoT Hub Différences techniques Globalement ces 2 services ont des attributs similaires, ils sont conçus pour travailler avec un débit élevé de données, une faible latence mais voyons ici un comparatif des différences techniques:
-        …
-        <div class="read-more-link">
-            <a href="/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donnees-dans-iot/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/">Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova</a></h2>
-        <span class="post-date">18/02/2016
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/angularjs">angularjs</a>  | 
-            
-            <a class="meta" href="/tags/cordova">cordova</a>  | 
-            
-            <a class="meta" href="/tags/google-map">google map</a>  | 
-            
-            <a class="meta" href="/tags/typescript">typescript</a>  | 
-            
-            <a class="meta" href="/tags/windows">windows</a> 
-            
-          
-          
-          
-        </span>
-        Introduction Récemment nous avons dû afficher une GoogleMap dans une application Cordova.
+		…
+		<div class="read-more-link">
+			<a href="/posts/iot-hub-ou-event-hub-quels-services-pour-la-communication-des-donn%C3%A9es-dans-liot/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/impl%C3%A9menter-une-googlemap-avec-angularjs-et-typescript-dans-cordova/">Implémenter une GoogleMap avec AngularJS et TypeScript dans Cordova</a></h2>
+		<span class="post-date">18/02/2016
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/angularjs">angularjs</a>
+			 | 
+			
+			<a class="meta" href="/tags/cordova">cordova</a>
+			 | 
+			
+			<a class="meta" href="/tags/google-map">google map</a>
+			 | 
+			
+			<a class="meta" href="/tags/typescript">typescript</a>
+			 | 
+			
+			<a class="meta" href="/tags/windows">windows</a>
+			
+			
+			
+			
+			
+		</span>
+		Introduction Récemment nous avons dû afficher une GoogleMap dans une application Cordova.
 Lors de son initialisation, la librairie cherche à injecter dynamiquement des scripts nécessaires à son bon fonctionnement ce qui est, sur la plateforme Windows, interdit. Le seul moyen de le permettre est que la carte se retrouve sandboxée dans le composant ms-web-view.
 Nous avons donc des solutions différentes suivant la plateforme d’utilisation, c’est là que les “merges” de Cordova entrent en jeu, il va falloir une implémentation différente par plateforme sans faire faillir l&rsquo;IntelliSense et la compilation TypeScript.
-        …
-        <div class="read-more-link">
-            <a href="/posts/implementer-une-googlemap-avec-angularjs-et-typescript-dans-cordova/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/">Attendre que vos ressources dynamiques soient chargées grâce aux promises</a></h2>
-        <span class="post-date">16/02/2016
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/angularjs">angularjs</a>  | 
-            
-            <a class="meta" href="/tags/promises">promises</a>  | 
-            
-            <a class="meta" href="/tags/typescript">typescript</a> 
-            
-          
-          
-          
-        </span>
-        Dans une webApp, s’il est nécessaire de charger des scripts/ressources dynamiquement, il est alors important de pouvoir s’assurer du chargement complet de ceux-ci dans notre application avant de pouvoir exécuter du code lié à ces éléments.
+		…
+		<div class="read-more-link">
+			<a href="/posts/impl%C3%A9menter-une-googlemap-avec-angularjs-et-typescript-dans-cordova/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/attendre-que-vos-ressources-dynamiques-soient-charg%C3%A9es-gr%C3%A2ce-aux-promises/">Attendre que vos ressources dynamiques soient chargées grâce aux promises</a></h2>
+		<span class="post-date">16/02/2016
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/angularjs">angularjs</a>
+			 | 
+			
+			<a class="meta" href="/tags/promises">promises</a>
+			 | 
+			
+			<a class="meta" href="/tags/typescript">typescript</a>
+			
+			
+			
+			
+			
+		</span>
+		Dans une webApp, s’il est nécessaire de charger des scripts/ressources dynamiquement, il est alors important de pouvoir s’assurer du chargement complet de ceux-ci dans notre application avant de pouvoir exécuter du code lié à ces éléments.
 Pour reprendre l’exemple de mon article traitant des GoogleMap nous chargions des scripts dynamiquement, pour gérer le cas nous avons 2 étapes:
 Dans un premier temps nous allons disposer d’une méthode retournant une promise, qui va être, soit résolue directement, soit en stocker le deferred, en fonction d’une simple propriété isLoaded : boolean.
-        …
-        <div class="read-more-link">
-            <a href="/posts/attendre-que-vos-ressources-dynamiques-soient-chargees-grace-aux-promises/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/">Utiliser un certificat d’entreprise pour un package Windows pour Cordova</a></h2>
-        <span class="post-date">11/02/2016
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/certificat">certificat</a>  | 
-            
-            <a class="meta" href="/tags/cordova">cordova</a>  | 
-            
-            <a class="meta" href="/tags/windows">windows</a> 
-            
-          
-          
-          
-        </span>
-        En ce qui concerne les application pour la plateforme Windows, il peut arriver même lors de phases de recettes d’avoir à utiliser un certificat Entreprise, sauf que contrairement à un projet d’application Windows 8.1&frasl;10, nous ne disposons pas de simple bouton pour importer un certificat.
+		…
+		<div class="read-more-link">
+			<a href="/posts/attendre-que-vos-ressources-dynamiques-soient-charg%C3%A9es-gr%C3%A2ce-aux-promises/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/utiliser-un-certificat-dentreprise-pour-un-package-windows-pour-cordova/">Utiliser un certificat d’entreprise pour un package Windows pour Cordova</a></h2>
+		<span class="post-date">11/02/2016
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/certificat">certificat</a>
+			 | 
+			
+			<a class="meta" href="/tags/cordova">cordova</a>
+			 | 
+			
+			<a class="meta" href="/tags/windows">windows</a>
+			
+			
+			
+			
+			
+		</span>
+		En ce qui concerne les application pour la plateforme Windows, il peut arriver même lors de phases de recettes d’avoir à utiliser un certificat Entreprise, sauf que contrairement à un projet d’application Windows 8.1&frasl;10, nous ne disposons pas de simple bouton pour importer un certificat.
 La tâche est très simple mais juste un peu plus longue que pour les applications traditionnelles, voilà les étapes de packaging:
 Première étape: Installer et ajouter le certificat En effet il est nécessaire d’installer le certificat, lorsque vous êtes sur les options d’installation, pensez à bien sélectionner l’utilisateur courant puis le magasin“Personnel” pour éviter toute erreur lors de la build, puis ajoutez le certificat dans le dossier de ressources native.
-        …
-        <div class="read-more-link">
-            <a href="/posts/cordova-utiliser-certificat-entreprise-pour-un-package-windows/">Lire l'article</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/utiliser-les-fonctionnalites-du-cache-html-5/">Utiliser Les Fonctionnalites Du Cache Html 5</a></h2>
-        <span class="post-date">20/03/2015
-          
-          
-          
-             <i class="fas fa-tags"></i>
-            
-            <a class="meta" href="/tags/html5">html5</a>  | 
-            
-            <a class="meta" href="/tags/cache">cache</a>  | 
-            
-            <a class="meta" href="/tags/manifest">manifest</a> 
-            
-          
-          
-          
-        </span>
-        Depuis quelques années il devient de plus en plus important de pouvoir permettre à une web application de fonctionner de façon offline (notamment pour les Single Page Applications). Grace aux spécifications HTML5 de nombreux outils sont à notre disposition dans 2 catégories , le Storage et le Cache. Ici nous allons voir comment exploiter les fonctionnalités du Cache à bon escient.
+		…
+		<div class="read-more-link">
+			<a href="/posts/utiliser-un-certificat-dentreprise-pour-un-package-windows-pour-cordova/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="post">
+		
+		<h2 class="post-title"><a href="https://KevinALBRECHT.github.io/posts/utiliser-les-fonctionnalites-du-cache-html-5/">Utiliser Les Fonctionnalites Du Cache Html 5</a></h2>
+		<span class="post-date">20/03/2015
+			
+			
+			
+			 <i class="fas fa-tags"></i>
+			
+			<a class="meta" href="/tags/cache">cache</a>
+			 | 
+			
+			<a class="meta" href="/tags/html5">html5</a>
+			 | 
+			
+			<a class="meta" href="/tags/manifest">manifest</a>
+			
+			
+			
+			
+			
+		</span>
+		Depuis quelques années il devient de plus en plus important de pouvoir permettre à une web application de fonctionner de façon offline (notamment pour les Single Page Applications). Grace aux spécifications HTML5 de nombreux outils sont à notre disposition dans 2 catégories , le Storage et le Cache. Ici nous allons voir comment exploiter les fonctionnalités du Cache à bon escient.
 Comment fonctionne le cache HTML 5 ? Le cache HTML5 est une spécification qui apporte une logique unique aux navigateurs pour gérer les ressources (html, javascript, CSS, images …etc), il est compatible avec tous les navigateurs récents et à partir d&rsquo;Internet Explorer 10.
-        …
-        <div class="read-more-link">
-            <a href="/posts/utiliser-les-fonctionnalites-du-cache-html-5/">Lire l'article</a>
-        </div>
-        
-        </div>
-  </div>
-            <div class="footer">
-                
-            </div>
-        </div>
-        
-        
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-118690818-1', 'auto');
-ga('send', 'pageview');
+		…
+		<div class="read-more-link">
+			<a href="/posts/utiliser-les-fonctionnalites-du-cache-html-5/">Lire l'article</a>
+		</div>
+		
+	</div>
+	
+	
+</div>
+		<div class="footer">
+			
+		</div>
+	</div>
+	
+	
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-118690818-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-        
-    </body>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
 </html>
