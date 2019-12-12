@@ -11,9 +11,9 @@
     
     <meta name="generator" content="Hugo 0.59.0" />
     
-    <title>Utiliser un certificat d’entreprise pour un package Windows pour Cordova &middot; Kevin ALBRECHT</title>
-    <meta content="Utiliser un certificat d’entreprise pour un package Windows pour Cordova - Kevin ALBRECHT" property="og:title">
-    <meta content=" - En ce qui concerne les application pour la plateforme Windows, il peut arriver même lors de phases de recettes d’avoir à utiliser un certificat Entreprise, sauf que contrairement à un projet d’application Windows 8.1/10, nous ne disposons pas de simple bouton pour importer un certificat..." property="og:description">
+    <title>A propos &middot; Kevin ALBRECHT</title>
+    <meta content="A propos - Kevin ALBRECHT" property="og:title">
+    <meta content=" - " property="og:description">
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -118,116 +118,39 @@
 </script>
 <img src="">
 	<div class="content container">
-		<div class="post">
-	<h1>Utiliser un certificat d’entreprise pour un package Windows pour Cordova</h1>
-	
-	<div class="col-sm-12 col-md-12">
-		<span class="text-left post-date meta">
-			
-			
-			<i class="fas fa-calendar-alt"></i> 11/02/2016
-			
-			
-			
-			
-			
-			
-			<br />
-			 <i class="fas fa-tags"></i>
-			
-			<a class="meta"
-				href="/tags/certificat">certificat</a> |
-			
-			
-			<a class="meta"
-				href="/tags/cordova">cordova</a> |
-			
-			
-			<a class="meta"
-				href="/tags/windows">windows</a>
-			
-			
-			
-			<br />
-			<i class="fas fa-clock"></i> 2 min de lecture
-		</span>
-	</div>
-	
-	
+		<div class="about">
+	<h1>A propos</h1>
+	<p><style type="text/css">
+object{
+    height:90vh;
+}</style>
+<!-- <canvas width="600" height="400" id="title"></canvas> --></p>
 
-<p>En ce qui concerne les application pour la plateforme Windows, il peut arriver même lors de phases de recettes d’avoir à utiliser un certificat Entreprise, sauf que contrairement à un projet d’application Windows 8.<sup>1</sup>&frasl;<sub>10</sub>, nous ne disposons pas de simple bouton pour importer un certificat.</p>
+<hr />
 
-<p>La tâche est très simple mais juste un peu plus longue que pour les applications traditionnelles, voilà les étapes de packaging:</p>
+<p>Développeur Full stack avec 6 ans d&rsquo;expérience, je suis particulièrement attiré par les technologies Microsoft et principalement Web: C#, asp.net core, plateforme Azure &hellip; Je suis aussi très intéressé par Les technos Front, Angular, RxJS,  un peu de react , architecture Redux et Cordova&hellip;</p>
 
-<h2 id="première-étape-installer-et-ajouter-le-certificat">Première étape: Installer et ajouter le certificat</h2>
+<p>J&rsquo;ai animé 3 Formations via la société ORSYS sur Cordova, participé à 2 livres blanc et une publication dans le magazine &ldquo;Programmez&rdquo; sur le sujet des technologies d&rsquo;applications Cross-plateform.</p>
 
-<p>En effet il est nécessaire d’installer le certificat, lorsque vous êtes sur les options d’installation, pensez à bien sélectionner l’utilisateur courant puis le magasin“Personnel” pour éviter toute erreur lors de la build, puis ajoutez le certificat dans le dossier de ressources native.</p>
+<p>Poste actuel : Consultant Fullstack chez <a href="https://infinitesquare.com/" target="_blank">Infinite Square</a>.</p>
 
-<p><img src="/cert_6B272457.png" alt="result image" /></p>
+<hr />
 
-<h2 id="2eme-étape-récupérer-le-thumbprint">2eme étape : récupérer le Thumbprint</h2>
-
-<p>Il faut renseigner le Thumbprint du certificat, pour le trouver il vous suffit d’ouvrir PowerShell et d’exécuter la commande suivante :</p>
-
-<p><strong>Get-ChildItem -path cert:\LocalMachine\My</strong></p>
-
-<p>Et voila le résultat, vous allez pouvoir récupérer le thumbprint correspondant.</p>
-
-<p><img src="/cert_6717AA8B.png" alt="result image" /></p>
-
-<h2 id="3eme-étape-configurer-les-informations-de-build">3eme étape : Configurer les informations de build</h2>
-
-<p>Allons maintenant remplir le fichier build.json qui se trouve à la racine de votre projet.</p>
-
-<p>Celui-ci doit contenir les information de build suivant la plateforme et l’état de release ou debug</p>
-
-<pre><code class="language-javascript">{
-  &quot;windows&quot;: {
-    &quot;release&quot;: {
-      &quot;packageCertificateKeyFile&quot;: &quot;res\\native\\windows\\myAppCertificate.pfx&quot;,
-      &quot;packageThumbprint&quot;: &quot;AAAAABBBBBCCCCCDDDDD00000111112222233333&quot;,
-      &quot;publisherId&quot;: &quot;E=moi@coucou.fr, CN=My Corp, OU=TEST, O=My Personnal Corp, L=PARIS, S=PARIS, C=FR&quot;
-    }
-  }
-}
-</code></pre>
-
-<p>Fin, vous pouvez maintenant build en release et faire votre petit click droit “Create App Package”.</p>
+<p><p>Mon CV :</p>
+<object data="/documents/KevinAlbrechtCV.pdf" type="application/pdf" width="700px">
+    <embed src="/documents/KevinAlbrechtCV.pdf">
+        <a href="/documents/KevinAlbrechtCV.pdf">KevinAlbrechtCV.pdf</a>
+    </embed>
+</object></p>
 
 </div>
 		<div class="footer">
 			
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p2.js/0.7.1/p2.min.js"></script>
 
 
-        <h2>Comments</h2>
-        <div id="disqus_thread"></div>
-<script type="text/javascript">
-      (function () {
-            
-            
-            
-            if (location.hostname === "localhost" || 
-            	location.hostname === "127.0.0.1" || 
-            	location.hostname === "") {
-                return;
-			}
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            var disqus_shortname = 'kalbrecht-blog';
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(
-                  dsq);
-      })();
-</script>
-
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-      
+<script src="./../p2script.js"></script>
 
 		</div>
 	</div>

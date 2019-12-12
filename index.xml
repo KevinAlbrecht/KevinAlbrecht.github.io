@@ -115,5 +115,16 @@ Première étape: Installer et ajouter le certificat En effet il est nécessaire
 Comment fonctionne le cache HTML 5 ? Le cache HTML5 est une spécification qui apporte une logique unique aux navigateurs pour gérer les ressources (html, javascript, CSS, images …etc), il est compatible avec tous les navigateurs récents et à partir d&amp;rsquo;Internet Explorer 10.</description>
     </item>
     
+    <item>
+      <title>A propos</title>
+      <link>https://KevinALBRECHT.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://KevinALBRECHT.github.io/about/</guid>
+      <description>object{ height:90vh; }  --
+Développeur Full stack avec 6 ans d&amp;rsquo;expérience, je suis particulièrement attiré par les technologies Microsoft et principalement Web: C#, asp.net core, plateforme Azure &amp;hellip; Je suis aussi très intéressé par Les technos Front, Angular, RxJS, un peu de react , architecture Redux et Cordova&amp;hellip;
+J&amp;rsquo;ai animé 3 Formations via la société ORSYS sur Cordova, participé à 2 livres blanc et une publication dans le magazine &amp;ldquo;Programmez&amp;rdquo; sur le sujet des technologies d&amp;rsquo;applications Cross-plateform.</description>
+    </item>
+    
   </channel>
 </rss>
