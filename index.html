@@ -16,9 +16,10 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kevinalbrecht.github.io/" />
+    <!-- Incrémenter v lors du remplacement de l'image pour changer son URL de cache. -->
     <meta
       property="og:image"
-      content="https://kevinalbrecht.github.io/img.jpeg"
+      content="https://kevinalbrecht.github.io/img.jpeg?v=2"
     />
     <meta property="og:site_name" content="テストサイト名" />
     <meta property="og:locale" content="ja_JP" />
@@ -36,7 +37,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://kevinalbrecht.github.io/img.jpeg"
+      content="https://kevinalbrecht.github.io/img.jpeg?v=2"
     />
   </head>
   <body>
@@ -45,7 +46,8 @@
       このページはTwitter（X）のカード表示を確認するためのテスト用HTMLです。
     </p>
     <img
-      src="./img.jpeg"
+      id="shareImage"
+      src="./img.jpeg?v=2"
       alt="テスト画像"
       style="max-width: 100%; height: auto"
     /><br /><br />
@@ -83,13 +85,19 @@
     <p id="shareImageStatus" role="status">画像を準備しています…</p>
 
     <script>
+      function getShareMetadata() {
+        return {
+          title: "【テスト】OGP表示確認用のサンプルタイトルです",
+          url: window.location.href,
+        };
+      }
+
       document
         .getElementById("shareButton")
         .addEventListener("click", async () => {
           const shareData = {
-            title: "【テスト】OGP表示確認用のサンプルタイトルです",
+            ...getShareMetadata(),
             text: "OGPテストページの共有です",
-            url: "https://kevinalbrecht.github.io/",
           };
 
           try {
@@ -118,14 +126,14 @@
         }
 
         try {
-          const response = await fetch("./img.jpeg");
+          const response = await fetch(document.getElementById("shareImage").src);
           if (!response.ok) {
             throw new Error(`Image request failed: ${response.status}`);
           }
           const blob = await response.blob();
           imageFile = new File([blob], "img.jpeg", { type: "image/jpeg" });
 
-          if (!navigator.canShare({ files: [imageFile] })) {
+          if (!navigator.canShare({ ...getShareMetadata(), files: [imageFile] })) {
             shareImageStatus.textContent =
               "このブラウザーは画像ファイルの共有に対応していません。";
             return;
@@ -133,7 +141,7 @@
 
           shareImageButton.disabled = false;
           shareImageStatus.textContent =
-            "ページのURLではなく、画像ファイルだけを共有します。";
+            "画像ファイルとページのタイトル、URLを共有します。";
         } catch (err) {
           shareImageStatus.textContent =
             "画像を読み込めませんでした。ページを再読み込みしてください。";
@@ -144,7 +152,7 @@
       shareImageButton.addEventListener("click", async () => {
         shareImageButton.disabled = true;
         try {
-          await navigator.share({ files: [imageFile] });
+          await navigator.share({ ...getShareMetadata(), files: [imageFile] });
           shareImageStatus.textContent = "画像の共有操作が完了しました。";
         } catch (err) {
           shareImageStatus.textContent =
