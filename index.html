@@ -64,6 +64,23 @@
     >
       共有する (Share)
     </button>
+    <button
+      id="shareImageButton"
+      disabled
+      aria-describedby="shareImageStatus"
+      style="
+        padding: 12px 24px;
+        font-size: 16px;
+        background-color: #187744;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      "
+    >
+      画像を共有する (Share image)
+    </button>
+    <p id="shareImageStatus" role="status">画像を準備しています…</p>
 
     <script>
       document
@@ -87,6 +104,62 @@
             console.log("共有がキャンセルされたか、エラーが発生しました", err);
           }
         });
+
+      const shareImageButton = document.getElementById("shareImageButton");
+      const shareImageStatus = document.getElementById("shareImageStatus");
+      let imageFile;
+
+      // Précharger le fichier pour appeler share() directement lors du clic.
+      async function prepareImageShare() {
+        if (!navigator.share || !navigator.canShare) {
+          shareImageStatus.textContent =
+            "このブラウザーは画像ファイルの共有に対応していません。";
+          return;
+        }
+
+        try {
+          const response = await fetch("./img.jpeg");
+          if (!response.ok) {
+            throw new Error(`Image request failed: ${response.status}`);
+          }
+          const blob = await response.blob();
+          imageFile = new File([blob], "img.jpeg", { type: "image/jpeg" });
+
+          if (!navigator.canShare({ files: [imageFile] })) {
+            shareImageStatus.textContent =
+              "このブラウザーは画像ファイルの共有に対応していません。";
+            return;
+          }
+
+          shareImageButton.disabled = false;
+          shareImageStatus.textContent =
+            "ページのURLではなく、画像ファイルだけを共有します。";
+        } catch (err) {
+          shareImageStatus.textContent =
+            "画像を読み込めませんでした。ページを再読み込みしてください。";
+          console.error("画像の準備に失敗しました", err);
+        }
+      }
+
+      shareImageButton.addEventListener("click", async () => {
+        shareImageButton.disabled = true;
+        try {
+          await navigator.share({ files: [imageFile] });
+          shareImageStatus.textContent = "画像の共有操作が完了しました。";
+        } catch (err) {
+          shareImageStatus.textContent =
+            err.name === "AbortError"
+              ? "画像の共有がキャンセルされました。"
+              : "画像を共有できませんでした。もう一度お試しください。";
+          if (err.name !== "AbortError") {
+            console.error("画像の共有に失敗しました", err);
+          }
+        } finally {
+          shareImageButton.disabled = false;
+        }
+      });
+
+      prepareImageShare();
     </script>
   </body>
 </html>
